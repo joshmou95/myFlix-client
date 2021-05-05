@@ -1,4 +1,12 @@
-.my-flix {
-  color: steelblue;
+html {
+  font-family: "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
 }
 /*# sourceMappingURL=index.d22b8a02.css.map */
