@@ -5,6 +5,7 @@ import axios from 'axios';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
 // exposes MainView class component to use by other components
 export class MainView extends React.Component {
@@ -13,7 +14,8 @@ export class MainView extends React.Component {
     // Initialize the state
     super();
     // executed when the component is created in memory
-    // Initial state is set to null
+    // Initial state of movies is empty array
+    // selectedMovie and user are set to null
     this.state = {
       movies: [],
       selectedMovie: null,
@@ -23,6 +25,7 @@ export class MainView extends React.Component {
 
   componentDidMount () {
     // execute after the component is added to the DOM
+    // fetch the movies api with axios
     axios.get('https://myflixdb2000.herokuapp.com/movies')
       .then(response => {
         this.setState({
@@ -48,9 +51,17 @@ export class MainView extends React.Component {
     });
   }
 
+  onRegister (register) {
+    this.setState({
+      register
+    });
+  }
+
   // returns visual representation of the component
   render () {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, selectedMovie, user, register } = this.state;
+
+    if (!register) return <RegistrationView onRegister={register => this.onRegister(register)}/>;
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView */
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
