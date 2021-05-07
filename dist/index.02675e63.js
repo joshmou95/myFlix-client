@@ -26307,7 +26307,8 @@ try {
     }
     componentDidMount() {
       // execute after the component is added to the DOM
-      _axiosDefault.default.get('https://myflixdb2000.herokuapp.com/movies').then(response => {
+      // axios.get('https://myflixdb2000.herokuapp.com/movies')
+      _axiosDefault.default.get('https://localhost:27017/myFlixDB').then(response => {
         this.setState({
           movies: response.data
         });
@@ -26337,7 +26338,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55,
+            lineNumber: 56,
             columnNumber: 23
           }
         })
@@ -26349,7 +26350,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 58,
+            lineNumber: 59,
             columnNumber: 37
           }
         })
@@ -26360,7 +26361,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 61,
+            lineNumber: 62,
             columnNumber: 7
           }
         }, selectedMovie ? /*#__PURE__*/_reactDefault.default.createElement(_movieViewMovieView.MovieView, {
@@ -26371,7 +26372,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64,
+            lineNumber: 65,
             columnNumber: 11
           }
         }) : movies.map(movie => /*#__PURE__*/_reactDefault.default.createElement(_movieCardMovieCard.MovieCard, {
@@ -26383,7 +26384,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66,
+            lineNumber: 67,
             columnNumber: 11
           }
         })))
@@ -29341,7 +29342,7 @@ try {
     this method returns an arry that you destructure*/
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
-    const handleSubmit = () => {
+    const handleSubmit = e => {
       // method prevents the default refresh/change of the page from handleSubmit method
       e.preventDefault();
       console.log(username, password);
