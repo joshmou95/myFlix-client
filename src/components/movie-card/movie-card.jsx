@@ -9,9 +9,8 @@ export class MovieCard extends React.Component {
     );
   }
 }
-
 // set static proptypes property on MovieCard
-MovieCard.proptypes = {
+MovieCard.propTypes = {
   // must include movie object
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
@@ -24,8 +23,8 @@ MovieCard.proptypes = {
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.number,
-      Death: PropTypes.number
+      Birth: PropTypes.string,
+      Death: PropTypes.string
     }),
     Actors: PropTypes.array
   }).isRequired,
