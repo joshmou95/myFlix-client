@@ -6,7 +6,7 @@ export function LoginView (props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     // method prevents the default refresh/change of the page from handleSubmit method
     e.preventDefault();
     console.log(username, password);
