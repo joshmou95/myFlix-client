@@ -22,7 +22,7 @@ export function LoginView (props) {
     <div>
       <Form>
       <Row className="justify-content-md-center">
-      <Col md={6}><br></br>
+      <Col xs={8} lg={6}><br></br>
       <h3>Login to MyFlix</h3>
         <Form.Group controlId="formUsername">
           <Form.Label>Username:</Form.Label>
