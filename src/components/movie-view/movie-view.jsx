@@ -10,8 +10,8 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Card className="movie-view">
-        <div className="movie-poster">
+      <Card className="movie-view px-2">
+        <div className="movie-poster p-4">
           <Card.Img variant="top" src={movie.ImagePath} />
         </div>
         <Card.Body>
@@ -20,7 +20,7 @@ export class MovieView extends React.Component {
             <span className="value">{movie.Title}</span>
           </Card.Title>
           <span className="label">Description: </span>
-          <Card.Text className="movie-description">
+          <Card.Text className="movie-description mb-3">
             <span className="value">{movie.Description}</span>
           </Card.Text>
           <Button onClick={() => { onBackClick(null); }}>Back</Button>
