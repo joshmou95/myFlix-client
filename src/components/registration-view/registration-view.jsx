@@ -23,26 +23,26 @@ export function RegistrationView (props) {
     <div>
       <Form>
         <Row className="justify-content-md-center">
-        <Col md={6}><br></br>
-        <h3>Register for MyFlix</h3>
-        <Form.Group controlId="formUsername">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
-        </Form.Group>
-        <Form.Group controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
-        </Form.Group>
-        <Form.Group controlId="FormEmail">
-          <Form.Label>Email:</Form.Label>
-          <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
-        </Form.Group>
-        <Form.Group controlId="formBirthday">
-          <Form.Label>Birthday:</Form.Label>
-          <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
-        </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
-        </Col>
+          <Col xs={8} lg={6}><br></br>
+            <h3>Register for MyFlix</h3>
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username:</Form.Label>
+              <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="FormEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formBirthday">
+              <Form.Label>Birthday:</Form.Label>
+              <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
+            </Form.Group>
+            <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
+          </Col>
         </Row>
       </Form>
     </div>
