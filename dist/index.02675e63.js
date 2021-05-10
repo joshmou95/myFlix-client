@@ -26671,6 +26671,7 @@ try {
       const {movie, onMovieClick} = this.props;
       return (
         /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default, {
+          className: "m-1 p-1",
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -28265,7 +28266,7 @@ try {
       const {movie, onBackClick} = this.props;
       return (
         /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default, {
-          className: "movie-view",
+          className: "movie-view px-2",
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -28273,7 +28274,7 @@ try {
             columnNumber: 7
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
-          className: "movie-poster",
+          className: "movie-poster p-4",
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -28329,7 +28330,7 @@ try {
             columnNumber: 11
           }
         }, "Description: "), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default.Text, {
-          className: "movie-description",
+          className: "movie-description mb-3",
           __self: this,
           __source: {
             fileName: _jsxFileName,
