@@ -4,6 +4,7 @@ node_modules
 
 # Ignore the build directory
 /dist
+dist
 
 # Node modules
 /node_modules
