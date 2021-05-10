@@ -28296,23 +28296,23 @@ try {
             lineNumber: 17,
             columnNumber: 9
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default.Title, {
-          className: "movie-title",
+        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
+          className: "label",
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 18,
             columnNumber: 11
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
-          className: "label",
+        }, "Title: "), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default.Title, {
+          className: "movie-title",
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 19,
-            columnNumber: 13
+            columnNumber: 11
           }
-        }, "Title: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
+        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
           className: "value",
           __self: this,
           __source: {
@@ -28320,23 +28320,23 @@ try {
             lineNumber: 20,
             columnNumber: 13
           }
-        }, movie.Title)), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default.Text, {
-          className: "movie-description",
+        }, movie.Title)), /*#__PURE__*/_reactDefault.default.createElement("span", {
+          className: "label",
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 22,
             columnNumber: 11
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
-          className: "label",
+        }, "Description: "), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapCardDefault.default.Text, {
+          className: "movie-description",
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 23,
-            columnNumber: 13
+            columnNumber: 11
           }
-        }, "Description: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
+        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
           className: "value",
           __self: this,
           __source: {
@@ -28372,7 +28372,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"3np1v","../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2UkCJ","prop-types":"4dfy5","./movie-view.scss":"4iZ2Z","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ"}],"4iZ2Z":[function() {},{}],"7rA65":[function(require,module,exports) {
+},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"3np1v","../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2UkCJ","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","./movie-view.scss":"4iZ2Z"}],"4iZ2Z":[function() {},{}],"7rA65":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 },{"./lib/axios":"4qfhW"}],"4qfhW":[function(require,module,exports) {
 'use strict';
@@ -30177,7 +30177,8 @@ try {
           columnNumber: 7
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
-        md: 6,
+        xs: 8,
+        lg: 6,
         __self: this,
         __source: {
           fileName: _jsxFileName,
@@ -30189,7 +30190,7 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 25,
-          columnNumber: 19
+          columnNumber: 26
         }
       }), /*#__PURE__*/_reactDefault.default.createElement("h3", {
         __self: this,
@@ -31378,26 +31379,27 @@ try {
           columnNumber: 9
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
-        md: 6,
+        xs: 8,
+        lg: 6,
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 26,
-          columnNumber: 9
+          columnNumber: 11
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("br", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 26,
-          columnNumber: 21
+          columnNumber: 30
         }
       }), /*#__PURE__*/_reactDefault.default.createElement("h3", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 27,
-          columnNumber: 9
+          columnNumber: 13
         }
       }, "Register for MyFlix"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
         controlId: "formUsername",
@@ -31405,14 +31407,14 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 28,
-          columnNumber: 9
+          columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 29,
-          columnNumber: 11
+          columnNumber: 15
         }
       }, "Username:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
         type: "text",
@@ -31421,7 +31423,7 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 30,
-          columnNumber: 11
+          columnNumber: 15
         }
       })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
         controlId: "formPassword",
@@ -31429,14 +31431,14 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 32,
-          columnNumber: 9
+          columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 33,
-          columnNumber: 11
+          columnNumber: 15
         }
       }, "Password:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
         type: "password",
@@ -31445,7 +31447,7 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 34,
-          columnNumber: 11
+          columnNumber: 15
         }
       })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
         controlId: "FormEmail",
@@ -31453,14 +31455,14 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 36,
-          columnNumber: 9
+          columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 37,
-          columnNumber: 11
+          columnNumber: 15
         }
       }, "Email:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
         type: "email",
@@ -31469,7 +31471,7 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 38,
-          columnNumber: 11
+          columnNumber: 15
         }
       })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
         controlId: "formBirthday",
@@ -31477,14 +31479,14 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 40,
-          columnNumber: 9
+          columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 41,
-          columnNumber: 11
+          columnNumber: 15
         }
       }, "Birthday:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
         type: "date",
@@ -31493,7 +31495,7 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 42,
-          columnNumber: 11
+          columnNumber: 15
         }
       })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
         variant: "primary",
@@ -31503,7 +31505,7 @@ try {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 44,
-          columnNumber: 9
+          columnNumber: 13
         }
       }, "Register")))))
     );
@@ -31526,7 +31528,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"3np1v","../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2UkCJ","prop-types":"4dfy5","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","./registration-view.scss":"22HWg","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8"}],"22HWg":[function() {},{}],"3X8QW":[function() {},{}],"5iJih":[function() {},{}],"3Mt3t":[function(require,module,exports) {
+},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"3np1v","../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2UkCJ","prop-types":"4dfy5","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","./registration-view.scss":"22HWg"}],"22HWg":[function() {},{}],"3X8QW":[function() {},{}],"5iJih":[function() {},{}],"3Mt3t":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
