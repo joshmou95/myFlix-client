@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export function LoginView (props) {
   /* call useState() method with an empty string, the initial value of the login variable. This method returns an arry that you destructure */
@@ -16,19 +20,22 @@ export function LoginView (props) {
 
   return (
     <div>
-    <h3>Login to MyFlix here!</h3>
-      <form>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-        </label>
-        <button type="submit" onClick={handleSubmit}>Submit</button>
-      </form>
-      <a href='../registration-view/registration-view'>Click here to Register</a>
+      <Form>
+      <Row className="justify-content-md-center">
+      <Col md={6}><br></br>
+      <h3>Login to MyFlix</h3>
+        <Form.Group controlId="formUsername">
+          <Form.Label>Username:</Form.Label>
+          <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+          </Form.Group>
+        <Form.Group controlId="formPassword">
+          <Form.Label>Password:</Form.Label>
+          <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+        </Form.Group>
+        <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+        </Col>
+        </Row>
+      </Form>
     </div>
   );
 }
