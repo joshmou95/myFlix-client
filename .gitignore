@@ -3,8 +3,7 @@ node_modules
 .parcel-cache
 
 # Ignore the build directory
-/dist
-dist
+dist/
 
 # Node modules
 /node_modules
