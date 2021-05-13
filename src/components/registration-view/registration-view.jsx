@@ -27,19 +27,19 @@ export function RegistrationView (props) {
             <h3>Register for MyFlix</h3>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
-              <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+              <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
             </Form.Group>
             <Form.Group controlId="formPassword">
               <Form.Label>Password:</Form.Label>
-              <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+              <Form.Control type="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.target.value)} />
             </Form.Group>
             <Form.Group controlId="FormEmail">
               <Form.Label>Email:</Form.Label>
-              <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
+              <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
             </Form.Group>
             <Form.Group controlId="formBirthday">
               <Form.Label>Birthday:</Form.Label>
-              <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
+              <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
             <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
           </Col>
