@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 import './movie-view.scss';
+import { Link } from 'react-router-dom';
 
 export class MovieView extends React.Component {
   render () {
@@ -24,6 +25,12 @@ export class MovieView extends React.Component {
             <span className="value">{movie.Description}</span>
           </Card.Text>
           <Button onClick={() => { onBackClick(null); }}>Back</Button>
+          <Link to={`/directors/${movie.Director.Name}`}>
+            <Button variant="link">Director</Button>
+          </Link>
+          <Link to={`/genres/${movie.Genre.Name}`}>
+            <Button variant="link">Genre</Button>
+          </Link>
         </Card.Body>
       </Card>
     );
@@ -31,9 +38,21 @@ export class MovieView extends React.Component {
 }
 MovieView.propTypes = {
   movie: PropTypes.shape({
-    ImagePath: PropTypes.string,
+    _id: PropTypes.string.isRequired,
     Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string.isRequired,
+      Birth: PropTypes.string,
+      Death: PropTypes.string
+    }),
+    Actors: PropTypes.array
   }).isRequired,
   onBackClick: PropTypes.func.isRequired
 };
