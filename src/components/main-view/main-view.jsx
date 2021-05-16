@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { DirectorView } from '../director-view/director-view/';
+import { GenreView } from '../genre-view/genre-view';
 import { RegistrationView } from '../registration-view/registration-view';
 
 import Row from 'react-bootstrap/Row';
@@ -49,7 +51,7 @@ export class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-      // Assign the result to the state
+        // Assign the result to the state
         this.setState({
           movies: response.data
         });
@@ -59,48 +61,31 @@ export class MainView extends React.Component {
       });
   }
 
-  /* When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` property to that movie */
-  setSelectedMovie (newSelectedMovie) {
-    this.setState({
-      selectedMovie: newSelectedMovie
-    });
-  }
-
   /* When a user successfully logs in, this function updates the `authData` property in state to that particular user  from login-view. props.onLoggedIn(data) */
   onLoggedIn (authData) {
     console.log(authData);
     this.setState({
-      // Username saved in the user state
       user: authData.user.Username
     });
-    // token and username saved in localStorage
+
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
-    // get movies from API once logged in to MainView class
     this.getMovies(authData.token);
   }
 
-  onRegister (register) {
-    this.setState({
-      register
-    });
-  }
-
   // delete token when logged out
-  onLoggedOut () {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
-  }
+  // onLoggedOut () {
+  //   localStorage.removeItem('token');
+  //   localStorage.removeItem('user');
+  //   this.setState({
+  //     user: null
+  //   });
+  // }
 
   // returns visual representation of the component
   render () {
     const { movies, user } = this.state;
-
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView */
-
     return (
       <Router>
         {/* <button onClick={() => { this.onLoggedOut() }}>Logout</button> */}
@@ -131,7 +116,7 @@ export class MainView extends React.Component {
             if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre }onBackClick={() => history.goBack()} />
+              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre } onBackClick={() => history.goBack()} />
             </Col>;
           }} />
           <Route path="/director/:name" render={({ match, history }) => {
@@ -142,7 +127,8 @@ export class MainView extends React.Component {
               {/* find directors name from the database */}
               <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
             </Col>;
-          }} />
+          }
+          } />
         </Row>
       </Router>
     );
