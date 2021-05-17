@@ -16,6 +16,7 @@ export function LoginView (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(username, password);
     /* Send a request to the server for authentication */
     axios.post('https://myflixdb2000.herokuapp.com/login', {
       Username: username,
@@ -35,19 +36,21 @@ export function LoginView (props) {
       <Form>
         <br></br>
           <h3>Login to MyFlix</h3>
-          <Form.Group controlId="formBasicUsername">
+          <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
             <Form.Control
-            type="text" value={username}
-            onChange={e => setUsername(e.target.value)}
-            placeholder="Enter username" />
+            type="text"
+            placeholder="Enter username"
+            value={username}
+            onChange={e => setUsername(e.target.value)} />
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group controlId="formPassword">
             <Form.Label>Password:</Form.Label>
             <Form.Control
-              type="password" value={password}
-              onChange={e => setPassword(e.target.value)}
-              placeholder="Enter Password" />
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)} />
           </Form.Group>
             <Button variant="primary" type="submit" onClick={handleSubmit}>Submit </Button>
             <hr />
@@ -59,5 +62,9 @@ export function LoginView (props) {
   );
 }
 LoginView.propTypes = {
+  users: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired
+  }),
   onLoggedIn: PropTypes.func.isRequired
 };
