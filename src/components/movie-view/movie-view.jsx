@@ -53,6 +53,6 @@ MovieView.propTypes = {
       Death: PropTypes.string
     }),
     Actors: PropTypes.array
-  }).isRequired,
+  }),
   onBackClick: PropTypes.func.isRequired
 };
