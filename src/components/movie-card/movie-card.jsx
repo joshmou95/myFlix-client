@@ -24,6 +24,14 @@ export class MovieCard extends React.Component {
     );
   }
 }
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired
+  }).isRequired
+};
 // set static proptypes property on MovieCard
 // MovieCard.propTypes = {
 //   // must include movie object
@@ -47,6 +55,3 @@ export class MovieCard extends React.Component {
 //   // must contain onMovieClick and must be a function
 //   onMovieClick: PropTypes.func.isRequired
 // };
-MovieCard.propTypes = {
-  movie: PropTypes.object.isRequired
-};
