@@ -81,6 +81,7 @@ export class MainView extends React.Component {
   //     user: null
   //   });
   // }
+  /* <button onClick={() => { this.onLoggedOut() }}>Logout</button> */
 
   // returns visual representation of the component
   render () {
@@ -88,7 +89,6 @@ export class MainView extends React.Component {
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView */
     return (
       <Router>
-        {/* <button onClick={() => { this.onLoggedOut() }}>Logout</button> */}
         <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
             if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
