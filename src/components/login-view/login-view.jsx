@@ -18,6 +18,7 @@ export function LoginView (props) {
     e.preventDefault();
     console.log(username, password);
     /* Send a request to the server for authentication */
+    // axios.post('http://localhost:8080/login', {
     axios.post('https://myflixdb2000.herokuapp.com/login', {
       Username: username,
       Password: password
@@ -41,14 +42,16 @@ export function LoginView (props) {
             <Form.Control
             type="text"
             placeholder="Enter username"
-            onChange={e => setUsername(e.target.value)} />
+            onChange={e => setUsername(e.target.value)}
+            autoComplete="username" />
             </Form.Group>
             <Form.Group controlId="formPassword">
             <Form.Label>Password:</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
-              onChange={e => setPassword(e.target.value)} />
+              onChange={e => setPassword(e.target.value)}
+              autoComplete="password" />
           </Form.Group>
             <Button variant="primary" type="submit" onClick={handleSubmit}>Submit </Button>
             <hr />
