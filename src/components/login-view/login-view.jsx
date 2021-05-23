@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
@@ -19,18 +20,19 @@ export function LoginView (props) {
     console.log(username, password);
     /* Send a request to the server for authentication */
     // axios.post('http://localhost:8080/login', {
-    axios.post('https://myflixdb2000.herokuapp.com/login', {
+    axios.post('https://myflixdb2000.herokuapp.com/login', null, {
+      params: {
       Username: username,
       Password: password
+    }})
+    .then(response => {
+      const data = response.data;
+      console.log(data);
+      props.onLoggedIn(data);
     })
-      .then(response => {
-        const data = response.data;
-        console.log(data);
-        props.onLoggedIn(data);
-      })
-      .catch(e => {
-        console.log('no such user');
-      });
+    .catch(e => {
+      console.log('no such user');
+    });
   };
 
   return (
@@ -42,6 +44,7 @@ export function LoginView (props) {
             <Form.Label>Username:</Form.Label>
             <Form.Control
             type="text"
+            value={username}
             placeholder="Enter username"
             onChange={e => setUsername(e.target.value)}
             autoComplete="username" />
@@ -49,6 +52,7 @@ export function LoginView (props) {
             <Form.Group controlId="formPassword">
             <Form.Label>Password:</Form.Label>
             <Form.Control
+              value={password}
               type="password"
               placeholder="Password"
               onChange={e => setPassword(e.target.value)}
