@@ -25,6 +25,7 @@ export function LoginView (props) {
     })
       .then(response => {
         const data = response.data;
+        console.log(data);
         props.onLoggedIn(data);
       })
       .catch(e => {
@@ -63,9 +64,5 @@ export function LoginView (props) {
   );
 }
 LoginView.propTypes = {
-  users: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired
-  }),
   onLoggedIn: PropTypes.func.isRequired
 };
