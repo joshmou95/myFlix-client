@@ -17,7 +17,7 @@ export class MovieCard extends React.Component {
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
           <Link to={`/movies/${movie._id}`}>
-            <Button variant="link">Open</Button>
+            <Button variant="secondary">Open</Button>
           </Link>
         </Card.Body>
       </Card>
@@ -32,26 +32,4 @@ MovieCard.propTypes = {
     ImagePath: PropTypes.string.isRequired
   }).isRequired
 };
-// set static proptypes property on MovieCard
-// MovieCard.propTypes = {
-//   // must include movie object
-//   movie: PropTypes.shape({
-//     _id: PropTypes.string.isRequired,
-//     Title: PropTypes.string.isRequired,
-//     Description: PropTypes.string.isRequired,
-//     ImagePath: PropTypes.string,
-//     Genre: PropTypes.shape({
-//       Name: PropTypes.string.isRequired,
-//       Description: PropTypes.string
-//     }),
-//     Director: PropTypes.shape({
-//       Name: PropTypes.string.isRequired,
-//       Bio: PropTypes.string.isRequired,
-//       Birth: PropTypes.string,
-//       Death: PropTypes.string
-//     }),
-//     Actors: PropTypes.array
-//   }).isRequired,
-//   // must contain onMovieClick and must be a function
-//   onMovieClick: PropTypes.func.isRequired
-// };
+

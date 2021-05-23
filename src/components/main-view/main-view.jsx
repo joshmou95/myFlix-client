@@ -75,13 +75,13 @@ export class MainView extends React.Component {
   }
 
   // delete token when logged out
-  // onLoggedOut () {
-  //   localStorage.removeItem('token');
-  //   localStorage.removeItem('user');
-  //   this.setState({
-  //     user: null
-  //   });
-  // }
+  onLoggedOut () {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+  }
   /* <button onClick={() => { this.onLoggedOut() }}>Logout</button> */
 
   // returns visual representation of the component
@@ -117,12 +117,11 @@ export class MainView extends React.Component {
             if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre } onBackClick={() => history.goBack()} />
+              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
             </Col>;
           }} />
-          <Route path="/director/:name" render={({ match, history }) => {
+          <Route path="/directors/:name" render={({ match, history }) => {
             if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-            // if there are no movies return main-view
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
               {/* find directors name from the database */}
