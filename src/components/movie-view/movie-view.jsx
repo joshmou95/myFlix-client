@@ -11,7 +11,7 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Card className="movie-view px-2">
+      <Card className="movie-view px-4">
         <div className="movie-poster p-4">
           <Card.Img variant="top" src={movie.ImagePath} />
         </div>
