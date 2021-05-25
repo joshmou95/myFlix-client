@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 
 import Container from 'react-bootstrap/Container';
 
+import { MovieView } from '../movie-view/movie-view'
+
 import { MovieCard } from '../movie-card/movie-card'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 export class GenreView extends React.Component {
   render () {
-    const { genre, onBackClick } = this.props;
+    const { movies, genre, onBackClick } = this.props;
 
     return (
       <div>
@@ -24,20 +26,13 @@ export class GenreView extends React.Component {
           <Card.Text className="genre-discription">
             <span className="value">{genre.Description}</span>
           </Card.Text>
-          <Button variant="secondary" onClick={() => { onBackClick(null); }}>Back</Button>
+          <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
         </Card.Body>
       </Card>
-      {/* <Container>
-        <Row>
-          {
-            movies.map( (m, i) => (
-              <Col xs={4} lg={3} key={i} className="p-2">
-                <MovieCard key={m._id} movie={m} />
-              </Col>
-            ))
-          }
-        </Row>
-      </Container> */}
+        <Container>
+        <br></br>
+          <h4>Some {genre.Name} movies</h4>
+        </Container>
       </div> 
     );
   }
@@ -46,7 +41,7 @@ export class GenreView extends React.Component {
 GenreView.propTypes = {
   genre: PropTypes.shape({
     Name: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired
+    Description: PropTypes.string.isRequired,
   }),
   onBackClick: PropTypes.func.isRequired
 };
