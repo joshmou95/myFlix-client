@@ -42,7 +42,7 @@ export function RegistrationView (props) {
             <h3>Register for MyFlix</h3>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
-              <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} required />
+              <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} minLength="5" required />
             </Form.Group>
             <Form.Group controlId="formPassword">
               <Form.Label>Password:</Form.Label>
