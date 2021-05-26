@@ -12,8 +12,8 @@ export class MovieView extends React.Component {
 
     return (
       <Card className="movie-view px-4">
-        <div className="movie-poster p-4">
-          <Card.Img variant="top" src={movie.ImagePath} />
+        <div className="movie-poster mt-3">
+          <Card.Img src={movie.ImagePath} />
         </div>
         <Card.Body>
           <span className="label">Title: </span>
@@ -24,12 +24,12 @@ export class MovieView extends React.Component {
           <Card.Text className="movie-description mb-3">
             <span className="value">{movie.Description}</span>
           </Card.Text>
-          <Button onClick={() => { onBackClick(null); }}>Back</Button>
+          <Button variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
           <Link to={`/directors/${movie.Director.Name}`}>
-            <Button variant="link">Director</Button>
+            <Button variant="light">Director</Button>
           </Link>
           <Link to={`/genres/${movie.Genre.Name}`}>
-            <Button variant="link">Genre</Button>
+            <Button variant="light">Genre</Button>
           </Link>
         </Card.Body>
       </Card>
