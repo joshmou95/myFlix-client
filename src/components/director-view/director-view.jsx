@@ -3,17 +3,22 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-import { Link } from 'react-router-dom';
 import './director-view.scss'
-import { Container } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
+import { Container } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export class DirectorView extends React.Component {
+  constructor (props) {
+    super (props)
+  }
+
   render () {
     const { movies, director, onBackClick } = this.props;
 
     return (
-      <div>
+      <div key={director.props}>
         <Card className="director-view">
           <Card.Body>
               <Card.Title>
@@ -27,13 +32,19 @@ export class DirectorView extends React.Component {
               <span>Biography: </span>
               <span className="value">{director.Bio}</span>
             </Card.Text>
-            <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
+            <Button variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
           </Card.Body>
         </Card>
-
-        <Container>
-          <h4 className="mt-4">Some {director.Name} movies</h4>
-        </Container>
+          <h4 className="mt-3">Some {director.Name} movies</h4><hr />
+          {movies.map((m) => {
+          if (m.Director.Name === director.Name) {
+            return (
+              <div className="d-inline-flex align-content-center" key={m._id}>
+                <MovieCard movie={m} />
+              </div>
+            )
+          }
+        })}
       </div>
       
     );
