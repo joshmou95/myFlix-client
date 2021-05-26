@@ -5,19 +5,20 @@ import Card from 'react-bootstrap/Card';
 
 import Container from 'react-bootstrap/Container';
 
-import { MovieView } from '../movie-view/movie-view'
-
 import { MovieCard } from '../movie-card/movie-card'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
 
 export class GenreView extends React.Component {
+  constructor (props) {
+    super (props)
+  }
+
   render () {
     const { movies, genre, onBackClick } = this.props;
 
     return (
-      <div>
+      <div key={genre.props}>
       <Card className="genre-view">
         <Card.Body>
             <Card.Title>
@@ -26,17 +27,24 @@ export class GenreView extends React.Component {
           <Card.Text className="genre-discription">
             <span className="value">{genre.Description}</span>
           </Card.Text>
-          <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
+          <Button variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
         </Card.Body>
       </Card>
-        <Container>
-        <br></br>
-          <h4>Some {genre.Name} movies</h4>
-        </Container>
+          <h4 className="mt-4">Some {genre.Name} movies</h4><hr />
+        {movies.map((m) => {
+          if (m.Genre.Name === genre.Name) {
+            return (
+              <div className="d-inline-flex align-items-start m-1" key={m._id}>
+                <MovieCard movie={m} />
+              </div>
+            )
+          }
+        })}
       </div> 
     );
   }
 }
+
 
 GenreView.propTypes = {
   genre: PropTypes.shape({
