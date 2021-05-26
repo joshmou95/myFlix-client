@@ -1,7 +1,19 @@
 
 .poster {
+  width: 100%;
+  max-width: 225px;
+  max-height: 335px;
+}
+
+.title {
+  max-width: 200px;
   height: auto;
-  max-width: 100%;
+}
+
+.movie-card {
+  width: 100%;
+  max-width: 300px;
+  max-height: 500px;
 }
 
 $theme-colors: (
