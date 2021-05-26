@@ -95,10 +95,10 @@ export class MainView extends React.Component {
     return (
       <div>
         <Router>
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="d-flex">
             <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-between"> 
+            <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-start"> 
                 <Link variant="light" to={`/`}>
                   <Button variant="dark">Home</Button>
                 </Link>
