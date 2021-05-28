@@ -4,7 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 import axios from 'axios';
-
+import { UpdateView } from '../update-view/update-view'
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import { Link } from "react-router-dom";
+import { MovieCard } from '../movie-card/movie-card';
+import ListGroup from 'react-bootstrap/ListGroup'
 
 export class ProfileView extends React.Component {
   constructor (props) {
@@ -13,77 +18,99 @@ export class ProfileView extends React.Component {
       username: "",
       password: "",
       email: "",
-      birthday: "",
-      favoriteMovies: []
-    }
+      dob: "",
+      favoriteMovies: [],
+      movies: "",
+    };
   }
 
   componentDidMount() {
-    let accessToken = localStorage.getItem("token");
+    const accessToken = localStorage.getItem("token");
     this.getUser(accessToken);
   }
 
+  formatDate(date) {
+    if (date) date = date.substring(0, 10);
+    return date;
+  }
+
+  getUser(token) {
+    axios.get('https://myflixdb2000.herokuapp.com/users/' + localStorage.getItem("user"), {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          username: response.data.Username,
+          password: response.data.Password,
+          email: response.data.Email,
+          birthday: this.formatDate(response.data.Birthday),
+          favoriteMovies: response.data.FavoriteMovies
+        });
+      });
+  }
+
+  removeFavorite(movie) {
+    let token = localStorage.getItem("token");
+    let url =
+      "https://myflixdb2000.herokuapp.com/users/" +
+      localStorage.getItem("user") +
+      "/movies/" +
+      movie._id;
+    axios
+      .delete(url, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log(response);
+        alert("Removed from favorites");
+        this.componentDidMount();
+      });
+  }
 
   render() {
-    const { onLoggedIn, movies, user } = this.props;
+    const { movies, onBackClick } = this.props;
+    const user = this.state;
+    const favoriteMovieList = movies.filter((movie) => {
+      return this.state.favoriteMovies.includes(movie._id);
+    });
 
   return (
-    <div className="user-profile">
-      <p>{user.Username}</p>
+    <div>
+      <Card>
+        <Card.Body>
+          <Card.Title>Profile info:</Card.Title>
+          <Card.Text>
+            Username: {user.username} <br />
+            Email: {user.email} <br />
+            Birthday: {user.birthday} <br />
+          </Card.Text>
+          <UpdateView user={user} /><br />
+        </Card.Body>
+      </Card><br />
+        <div>
+          <h3>Favorite Movies</h3>
+          {favoriteMovieList.map((m) => {
+            return (
+              <div className="d-inline-flex align-items-start" key={m._id}>
+              <Card movie={m} className="movie-card d-inline-flex m-1 p-2 w-100">
+                <Card.Img className="w-100 h-50 poster" variant="top" src={m.ImagePath} />
+                <Card.Body>
+                  <Card.Title className="title h-auto w-100">{m.Title}</Card.Title>
+                    <Button variant="danger" onClick={() => this.removeFavorite(m)}>Remove</Button>
+                </Card.Body>
+              </Card>
+              </div>
+            );
+          })}
+        </div>
     </div>
-
   )}
 }
 
-// ProfileView.propTypes = {
-//   user: PropTypes.object({
-//     _id: PropTypes.string.isRequired,
-//     Username: PropTypes.string.isRequired,
-//     Password: PropTypes.string.isRequired,
-//     Email: PropTypes.string.isRequired,
-//     Birthday: PropTypes.string,
-//     FavoriteMovies: PropTypes.array
-//   }),
-//   onBackClick: PropTypes.func.isRequired
-// }
 PropTypes.checkPropTypes(ProfileView.propTypes);
+ProfileView.propTypes = {
+  movies: PropTypes.array.isRequired,
+  onBackClick: PropTypes.func.isRequired
+}
 
-// // Make a request for a user with a given ID
-// axios.get('/user?ID=12345')
-//   .then(function (response) {
-//     // handle success
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-//   .then(function () {
-//     // always executed
-//   });
-
-// // Optionally the request above could also be done as
-// axios.get('/user', {
-//     params: {
-//       ID: 12345
-//     }
-//   })
-//   .then(function (response) {
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   })
-//   .then(function () {
-//     // always executed
-//   });  
-
-// // Want to use async/await? Add the `async` keyword to your outer function/method.
-// async function getUser() {
-//   try {
-//     const response = await axios.get('/user?ID=12345');
-//     console.log(response);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
