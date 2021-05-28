@@ -6,43 +6,66 @@ import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import './registration-view.scss';
+import './update-view.scss';
 
-export function RegistrationView (props) {
+export function UpdateView (props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
-  const handleSubmit = (e) => {
+  const token = localStorage.getItem('token');
+  const user = localStorage.getItem("user");
+
+  const handleUpdate = (e) => {
     e.preventDefault();
-    axios.post('https://myflixdb2000.herokuapp.com/users', {
+    axios.put('https://myflixdb2000.herokuapp.com/users/' + user, {
       Username: username,
       Password: password,
       Email: email,
       Birthday: birthday
+    }, {
+      headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
         const data = response.data;
         console.log(data);
         // '_self' will open in the current tab
-        window.open('/', '_self');
+        window.open('_self');
       })
       .catch(e => {
-        console.log('error registering the user');
+        console.log('error updating the user');
+      });
+  };
+
+  const deRegister = (e) => {
+    e.preventDefault();
+    axios.delete('https://myflixdb2000.herokuapp.com/users/' + user, { 
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        const data = response.data;
+        console.log(data);
+        // '_self' will open in the current tab
+        window.open('/register');
+      })
+      .catch(e => {
+        console.log('error deleting the user');
       });
   };
 
   return (
     <div>
       <Form>
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-start">
           <Col xs={8} lg={6}><br></br>
-            <h3>Register for MyFlix</h3>
+            <h5>Update your Profile</h5>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
               <Form.Control type="text" 
-              placeholder="Enter username" 
+              placeholder="Enter password"
               value={username}
               autoComplete="username"
               onChange={e => setUsername(e.target.value)} 
@@ -51,7 +74,7 @@ export function RegistrationView (props) {
             <Form.Group controlId="formPassword">
               <Form.Label>Password:</Form.Label>
               <Form.Control type="password" 
-              placeholder="Enter password" 
+              placeholder="Enter password"
               value={password}
               autoComplete="password"
               onChange={e => setPassword(e.target.value)} required />
@@ -70,18 +93,22 @@ export function RegistrationView (props) {
               value={birthday} 
               onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
+            <Button variant="dark" type="submit" onClick={handleUpdate}>Update</Button>
+            <Form.Group><br />
+            <h5>Deregister Account: - Cannot be undone!</h5>
+            <Button variant="danger" type="submit" onClick={deRegister}>Deregister</Button>
+            </Form.Group>
           </Col>
         </Row>
       </Form>
     </div>
   );
 }
-RegistrationView.propTypes = {
+UpdateView.propTypes = {
   register: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
+    Username: PropTypes.string,
+    Password: PropTypes.string,
+    Email: PropTypes.string,
     Birthday: PropTypes.number
   })
 };
