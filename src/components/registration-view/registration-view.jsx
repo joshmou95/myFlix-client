@@ -16,7 +16,6 @@ export function RegistrationView (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // axios.post('http://localhost:8080/users', {
     axios.post('https://myflixdb2000.herokuapp.com/users', {
       Username: username,
       Password: password,
@@ -42,19 +41,34 @@ export function RegistrationView (props) {
             <h3>Register for MyFlix</h3>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
-              <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} minLength="5" required />
+              <Form.Control type="text" 
+              placeholder="Enter username" 
+              value={username}
+              autoComplete="username"
+              onChange={e => setUsername(e.target.value)} 
+              minLength="5" required />
             </Form.Group>
             <Form.Group controlId="formPassword">
               <Form.Label>Password:</Form.Label>
-              <Form.Control type="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.target.value)} required />
+              <Form.Control type="password" 
+              placeholder="Enter password" 
+              value={password}
+              autoComplete="password"
+              onChange={e => setPassword(e.target.value)} required />
             </Form.Group>
             <Form.Group controlId="FormEmail">
               <Form.Label>Email:</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} required />
+              <Form.Control type="email" 
+              placeholder="Enter email" 
+              value={email}
+              autoComplete="email"
+              onChange={e => setEmail(e.target.value)} required />
             </Form.Group>
             <Form.Group controlId="formBirthday">
               <Form.Label>Birthday:</Form.Label>
-              <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
+              <Form.Control type="date" 
+              value={birthday} 
+              onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
             <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
           </Col>
