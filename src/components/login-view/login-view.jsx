@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
@@ -59,11 +57,12 @@ export function LoginView (props) {
             </Form.Group>
               <Button variant="primary" type="submit" onClick={handleSubmit}>Submit </Button>
               <hr />
+              <p>Don't have an account?</p>
               <Link to="/register">
                 <Button variant="info" type="button"> Register</Button>
               </Link>
         </Form>
-        </Col>  
+      </Col>
   );
 }
 LoginView.propTypes = {
