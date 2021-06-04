@@ -95,7 +95,7 @@ export function UpdateView (props) {
             </Form.Group>
             <Button variant="dark" type="submit" onClick={handleUpdate}>Update</Button>
             <Form.Group><br />
-            <h5>Deregister Account: - Cannot be undone!</h5>
+            <p>Deregister Account: - Cannot be undone!</p>
             <Button variant="danger" type="submit" onClick={deRegister}>Deregister</Button>
             </Form.Group>
           </Col>
