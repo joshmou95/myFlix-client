@@ -2,18 +2,24 @@
 import React from 'react';
 import axios from 'axios';
 
-import './main-view.scss';
+import { connect } from 'react-redux';
 
+import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+// #0
+import { setMovies } from '../../actions/actions';
+
+// needs to be written
+// import MoviesList from '..movies-list/movies-list';
+import { MovieCard } from '../movie-card/movie-card';
 
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view/';
 import { GenreView } from '../genre-view/genre-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { ProfileView } from '../profile-view/profile-view';
+import { NavView } from '../nav-view/nav-view';
 
 
 import Row from 'react-bootstrap/Row';
@@ -21,7 +27,8 @@ import Col from 'react-bootstrap/Col';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+
+import './main-view.scss';
 
 // exposes MainView class component to use by other components
 export class MainView extends React.Component {
@@ -95,20 +102,7 @@ export class MainView extends React.Component {
     return (
       <div>
         <Router>
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="d-flex">
-            <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-start"> 
-                <Link variant="light" to={`/`}>
-                  <Button variant="dark">Home</Button>
-                </Link>
-                <Link to={`/users/${user}`}>
-                  <Button variant="dark">Profile</Button>
-                </Link>
-                <Button variant="dark" onClick={() => { this.onLoggedOut() }}>Logout</Button>
-            </Navbar.Collapse>
-          </Navbar><br />
-
+        <NavView /><br />
           <Row className="main-view justify-content-md-center">
             <Route exact path="/" render={() => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
