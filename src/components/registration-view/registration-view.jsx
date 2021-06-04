@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 
 import './registration-view.scss';
 
@@ -71,6 +72,11 @@ export function RegistrationView (props) {
               onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
             <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
+            <hr />
+            <p>Already have an account?</p>
+            <Link to="/">
+                <Button variant="info" type="button">Login</Button>
+            </Link>
           </Col>
         </Row>
       </Form>
