@@ -1,14 +1,15 @@
 
-.poster {
-  max-width: 225px;
-  max-height: 335px;
-}
+// .poster {
+//   // max-width: 225px;
+//   max-height: 335px;
+// }
 
 .movie-card {
-  max-width: 300px;
-  max-height: 500px;
+  max-width: 350px;
+  min-height: 450px;
+  // max-height: 500px;
 }
 
-$theme-colors: (
-    "primary": #512DA8
-);
+// $theme-colors: (
+//     "primary": #512DA8
+// );
