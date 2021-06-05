@@ -32,9 +32,9 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Card className="movie-view p-1">
-        <div className="movie-poster h-auto w-50 m-3">
-          <Card.Img src={movie.ImagePath} />
+      <Card className="movie-view p-1 m-3 h-100">
+        <div>
+          <Card.Img className="poster w-75 m-3" src={movie.ImagePath} />
         </div>
         <Card.Body>
           <span className="label">Title: </span>
