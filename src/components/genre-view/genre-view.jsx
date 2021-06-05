@@ -19,7 +19,7 @@ export class GenreView extends React.Component {
 
     return (
       <div key={genre.props}>
-      <Card className="genre-view">
+      <Card className="genre-view m-3">
         <Card.Body>
             <Card.Title>
             <span className="value">{genre.Name}</span>
