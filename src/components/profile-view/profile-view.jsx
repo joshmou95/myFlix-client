@@ -68,6 +68,15 @@ export class ProfileView extends React.Component {
       });
   }
 
+  // delete token when logged out
+  onLoggedOut () {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+  }
+
   render() {
     const { movies, onBackClick } = this.props;
     const user = this.state;
@@ -77,23 +86,23 @@ export class ProfileView extends React.Component {
 
   return (
     <div>
-      <Card>
+      <Card className="m-3">
         <Card.Body>
-          <Card.Title>Profile info:</Card.Title>
+          {/* <Card.Title>Profile info:</Card.Title>
           <Card.Text>
             Username: {user.username} <br />
             Email: {user.email} <br />
             Birthday: {user.birthday} <br />
-          </Card.Text>
+          </Card.Text> */}
           <UpdateView user={user} /><br />
         </Card.Body>
       </Card><br />
-        <div>
-          <h3>Favorite Movies</h3>
+      <h3>Favorite Movies</h3>
+        <div className="d-flex">
           {favoriteMovieList.map((m) => {
             return (
-              <div className="d-inline-flex align-items-start" key={m._id}>
-              <Card movie={m} className="movie-card d-inline-flex m-1 p-2 w-100">
+              <div  key={m._id}>
+              <Card movie={m} className="movie-card m-2 p-1">
                 <Card.Img className="w-100 h-50 poster" variant="top" src={m.ImagePath} />
                 <Card.Body>
                   <Card.Title className="title h-auto w-100">{m.Title}</Card.Title>
