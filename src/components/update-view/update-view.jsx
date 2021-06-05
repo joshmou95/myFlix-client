@@ -57,9 +57,8 @@ export function UpdateView (props) {
   };
 
   return (
-    <div>
       <Form>
-        <Row className="justify-content-start">
+        <Row className="justify-content-center">
           <Col xs={8} lg={6}><br></br>
             <h5>Update your Profile</h5>
             <Form.Group controlId="formUsername">
@@ -101,7 +100,6 @@ export function UpdateView (props) {
           </Col>
         </Row>
       </Form>
-    </div>
   );
 }
 UpdateView.propTypes = {
