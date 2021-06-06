@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 
 import './update-view.scss';
 
@@ -57,6 +58,7 @@ export function UpdateView (props) {
   };
 
   return (
+    <Card className="m-3">
       <Form>
         <Row className="justify-content-center">
           <Col xs={8} lg={6}><br></br>
@@ -100,6 +102,7 @@ export function UpdateView (props) {
           </Col>
         </Row>
       </Form>
+    </Card>
   );
 }
 UpdateView.propTypes = {
