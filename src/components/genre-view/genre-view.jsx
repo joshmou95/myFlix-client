@@ -34,7 +34,7 @@ export class GenreView extends React.Component {
         {movies.map((m) => {
           if (m.Genre.Name === genre.Name) {
             return (
-              <div className="d-inline-flex align-items-start" key={m._id}>
+              <div className="movie-card d-inline-flex align-content-start" key={m._id}>
                 <MovieCard movie={m} />
               </div>
             )
