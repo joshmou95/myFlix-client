@@ -41798,7 +41798,7 @@ class NavView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Link, {
-            href: `/users/${this.user.Username}`,
+            href: `/users/${this.user}`,
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/nav-view/nav-view.js",
                 lineNumber: 21
