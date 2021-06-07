@@ -4,15 +4,14 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 
-// #0
+
 import { setMovies } from '../../actions/actions';
 import { setUser } from '../../actions/actions';
 
-// needs to be written
 import MoviesList from '../movies-list/movies-list';
-// import { MovieCard } from '../movie-card/movie-card';
+
 
 import { LoginView } from '../login-view/login-view';
 import { MovieView } from '../movie-view/movie-view';
@@ -26,8 +25,6 @@ import { NavView } from '../nav-view/nav-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Container, Navbar, Nav } from 'react-bootstrap';
-
-
 import './main-view.scss';
 
 // exposes MainView class component to use by other components
@@ -72,6 +69,7 @@ class MainView extends React.Component {
 
   /* When a user successfully logs in, this function updates the `authData` property in state to that particular user  from login-view. props.onLoggedIn(data) */
   onLoggedIn (authData) {
+    this.props.setUser(authData);
     this.setState({
       user: authData.user.Username
     });
@@ -183,7 +181,7 @@ class MainView extends React.Component {
                 </Container>
               );
             }} />
-            <Route path="/users/:Username" render={({ match, history }) => {
+            <Route path="/users/:Username" render={({ history }) => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return ( 
@@ -211,11 +209,11 @@ class MainView extends React.Component {
 
 // mapStateToProps take the state as a parameter and returns an object
 let mapStateToProps = state => {
-  return { movies: state.movies, users: state.users }
+  return { movies: state.movies }
 }
 
 // movies state is extracted from the store through the connect() function
 // before being passed as the movies prop for the MainView component
 // finally the movies prop is passed to MovieList as a prop of the same name movies
 // setMovies is given as a prop to MainView because it is wrapped in the connect() function
-export default connect(mapStateToProps, { setUser, setMovies } )(MainView);
+export default connect(mapStateToProps, { setMovies, setUser } )(MainView);
