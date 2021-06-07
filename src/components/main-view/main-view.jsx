@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 // #0
 import { setMovies } from '../../actions/actions';
@@ -26,8 +26,7 @@ import { NavView } from '../nav-view/nav-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Container, Navbar, Nav } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+
 
 import './main-view.scss';
 
@@ -212,11 +211,11 @@ class MainView extends React.Component {
 
 // mapStateToProps take the state as a parameter and returns an object
 let mapStateToProps = state => {
-  return { movies: state.movies }
+  return { movies: state.movies, users: state.users }
 }
 
 // movies state is extracted from the store through the connect() function
 // before being passed as the movies prop for the MainView component
 // finally the movies prop is passed to MovieList as a prop of the same name movies
 // setMovies is given as a prop to MainView because it is wrapped in the connect() function
-export default connect(mapStateToProps, { setMovies } )(MainView);
+export default connect(mapStateToProps, { setUser, setMovies } )(MainView);
