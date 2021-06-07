@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -12,10 +13,6 @@ import Form from 'react-bootstrap/Form';
 
 import './profile-view.scss';
 
-import { UpdateView } from '../update-view/update-view'
-import { MovieCard } from '../movie-card/movie-card';
-import ListGroup from 'react-bootstrap/ListGroup'
-import { CardColumns } from 'react-bootstrap';
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -27,7 +24,7 @@ export class ProfileView extends React.Component {
       Email: null,
       Birthday: null,
       FavoriteMovies: [],
-      validated: null,
+      validated: null
     };
   }
 
@@ -249,3 +246,12 @@ ProfileView.propTypes = {
   onBackClick: PropTypes.func.isRequired
 }
 
+const mapStateToProps = state => ({
+  users: state.users
+});
+
+const mapDispatchToProps = {
+  setUser
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileView);
