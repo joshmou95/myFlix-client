@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { updateUser } from '../../actions/actions';
-import { deleteUser } from '../../actions/actions';
+// import { connect } from 'react-redux';
+// import { updateUser } from '../../actions/actions';
+// import { deleteUser } from '../../actions/actions';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -246,14 +246,14 @@ ProfileView.propTypes = {
   onBackClick: PropTypes.func.isRequired
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  deRegister: () => dispatch(deRegister()),
-  handleUpdate: (newUsername, newPassword, newEmail, newBirthday) =>
-    dispatch(handleUpdate(newUsername, newPassword, newEmail, newBirthday))
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   deRegister: () => dispatch(deRegister()),
+//   handleUpdate: (newUsername, newPassword, newEmail, newBirthday) =>
+//     dispatch(handleUpdate(newUsername, newPassword, newEmail, newBirthday))
+// });
 
-const mapStateToProps = (state) => ({
-  user: state.user.user,
-});
+// const mapStateToProps = (state) => ({
+//   user: state.user.user,
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps, { updateUser, deleteUser } )(ProfileView);
+// export default connect(mapStateToProps, mapDispatchToProps, { updateUser, deleteUser } )(ProfileView);
