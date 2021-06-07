@@ -1,9 +1,9 @@
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
 
@@ -14,6 +14,7 @@ export function LoginView (props) {
   /* call useState() method with an empty string, the initial value of the login variable. This method returns an arry that you destructure */
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const validated = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,12 +30,14 @@ export function LoginView (props) {
     })
     .catch(e => {
       console.log('no such user');
+      alert('Please try again');
     });
   };
 
   return (
-      <Col xs={6} lg={6} className="justify-content-md-center">
-        <Form>
+    <Card className="p-4 m-3 justify-content-md-center">
+      <Col>
+        <Form noValidate validated={validated}>
           <br></br>
             <h3>Login to MyFlix</h3>
             <Form.Group controlId="formUsername">
@@ -44,8 +47,10 @@ export function LoginView (props) {
               value={username}
               placeholder="Enter username"
               onChange={e => setUsername(e.target.value)}
-              autoComplete="username" 
+              autoComplete="username"
+              pattern='[a-zA-Z0-9]{5,}'
               required minLength="5" />
+              <Form.Control.Feedback type='invalid'>Enter your Username with at least 5 characters</Form.Control.Feedback>
               </Form.Group>
               <Form.Group controlId="formPassword">
               <Form.Label>Password:</Form.Label>
@@ -55,17 +60,27 @@ export function LoginView (props) {
                 placeholder="Password"
                 onChange={e => setPassword(e.target.value)}
                 autoComplete="password" 
+                minLength="5"
                 required />
+                <Form.Control.Feedback type='invalid'>Enter your password with at least 5 characters</Form.Control.Feedback>
             </Form.Group>
               <Button variant="primary" type="submit" onClick={handleSubmit}>Submit </Button>
               <hr />
+              <p>Don't have an account?</p>
               <Link to="/register">
                 <Button variant="info" type="button"> Register</Button>
               </Link>
         </Form>
-        </Col>  
+      </Col>
+    </Card>
   );
 }
 LoginView.propTypes = {
   onLoggedIn: PropTypes.func.isRequired
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: (username, password) => dispatch(handleSubmit(username, password))
+});
+
+export default connect(null, mapDispatchToProps)(LoginView);

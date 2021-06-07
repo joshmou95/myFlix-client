@@ -19,7 +19,7 @@ export class DirectorView extends React.Component {
 
     return (
       <div key={director.props}>
-        <Card className="director-view">
+        <Card className="director-view m-3">
           <Card.Body>
               <Card.Title>
               <span className="value">{director.Name}</span>
@@ -39,7 +39,7 @@ export class DirectorView extends React.Component {
           {movies.map((m) => {
           if (m.Director.Name === director.Name) {
             return (
-              <div className="d-inline-flex align-items-start" key={m._id}>
+              <div className="d-inline-flex align-content-start" key={m._id}>
                 <MovieCard movie={m} />
               </div>
             )

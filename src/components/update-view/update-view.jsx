@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 
 import './update-view.scss';
 
@@ -57,9 +58,9 @@ export function UpdateView (props) {
   };
 
   return (
-    <div>
+    <Card className="m-3">
       <Form>
-        <Row className="justify-content-start">
+        <Row className="justify-content-center">
           <Col xs={8} lg={6}><br></br>
             <h5>Update your Profile</h5>
             <Form.Group controlId="formUsername">
@@ -95,13 +96,13 @@ export function UpdateView (props) {
             </Form.Group>
             <Button variant="dark" type="submit" onClick={handleUpdate}>Update</Button>
             <Form.Group><br />
-            <h5>Deregister Account: - Cannot be undone!</h5>
+            <p>Deregister Account: - Cannot be undone!</p>
             <Button variant="danger" type="submit" onClick={deRegister}>Deregister</Button>
             </Form.Group>
           </Col>
         </Row>
       </Form>
-    </div>
+    </Card>
   );
 }
 UpdateView.propTypes = {

@@ -1,14 +1,11 @@
-
 .poster {
-  max-width: 225px;
-  max-height: 335px;
+  // align-self: center;
+  max-width: 220px;
+  height: auto;
+  // width: auto;
+  // max-height: 335px;
 }
 
-.movie-card {
-  max-width: 300px;
-  max-height: 500px;
+.title {
+  max-width: 200px;
 }
-
-$theme-colors: (
-    "primary": #512DA8
-);

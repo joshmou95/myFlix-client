@@ -19,7 +19,7 @@ export class GenreView extends React.Component {
 
     return (
       <div key={genre.props}>
-      <Card className="genre-view">
+      <Card className="genre-view m-3">
         <Card.Body>
             <Card.Title>
             <span className="value">{genre.Name}</span>
@@ -34,7 +34,7 @@ export class GenreView extends React.Component {
         {movies.map((m) => {
           if (m.Genre.Name === genre.Name) {
             return (
-              <div className="d-inline-flex align-items-start" key={m._id}>
+              <div className="movie-card d-inline-flex align-content-start" key={m._id}>
                 <MovieCard movie={m} />
               </div>
             )
