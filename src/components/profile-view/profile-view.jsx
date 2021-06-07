@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { setUser } from '../../actions/actions';
+import { updateUser } from '../../actions/actions';
+import { deleteUser } from '../../actions/actions';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -107,7 +108,7 @@ export class ProfileView extends React.Component {
         Birthday: newBirthday ? newBirthday : this.state.Birthday,
       },
     })
-      .then((response) => {
+      .then(response => {
         this.setState({
           Username: response.data.Username,
           Password: response.data.Password,
@@ -170,7 +171,6 @@ export class ProfileView extends React.Component {
 
   return (
     <div>
-      {/* <UpdateView user={user} /> */}
       <Card className="m-3">
         <Card.Body>
           <Form noValidate validated={validated} className='update-form' onSubmit={(e) => this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
@@ -246,12 +246,14 @@ ProfileView.propTypes = {
   onBackClick: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-  users: state.users
+const mapDispatchToProps = (dispatch) => ({
+  deRegister: () => dispatch(deRegister()),
+  handleUpdate: (newUsername, newPassword, newEmail, newBirthday) =>
+    dispatch(handleUpdate(newUsername, newPassword, newEmail, newBirthday))
 });
 
-const mapDispatchToProps = {
-  setUser
-};
+const mapStateToProps = (state) => ({
+  user: state.user.user,
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileView);
+export default connect(mapStateToProps, mapDispatchToProps, { updateUser, deleteUser } )(ProfileView);
