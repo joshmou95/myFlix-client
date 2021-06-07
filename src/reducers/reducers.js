@@ -22,7 +22,7 @@ function movies(state = [], action) {
   }
 }
 
-function user(state = [], action) {
+function users(state = [], action) {
   switch (action.type) {
     case SET_USER:
       console.log('SET_USER reducer reached');
@@ -35,7 +35,7 @@ function user(state = [], action) {
 const moviesApp = combineReducers({
   visibilityFilter,
   movies,
-  user
+  users
 });
 
 // function moviesApp(state = {}, action) {
