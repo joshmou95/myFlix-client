@@ -41217,8 +41217,9 @@ var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactRedux = require("react-redux");
-var _actions = require("../../actions/actions");
+// import { connect } from 'react-redux';
+// import { updateUser } from '../../actions/actions';
+// import { deleteUser } from '../../actions/actions';
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _card = require("react-bootstrap/Card");
@@ -41652,28 +41653,22 @@ _propTypesDefault.default.checkPropTypes(ProfileView.propTypes);
 ProfileView.propTypes = {
     movies: _propTypesDefault.default.array.isRequired,
     onBackClick: _propTypesDefault.default.func.isRequired
-};
-const mapDispatchToProps = (dispatch)=>({
-        deRegister: ()=>dispatch(deRegister())
-        ,
-        handleUpdate: (newUsername, newPassword, newEmail, newBirthday)=>dispatch(handleUpdate(newUsername, newPassword, newEmail, newBirthday))
-    })
-;
-const mapStateToProps = (state)=>({
-        user: state.user.user
-    })
-;
-exports.default = _reactRedux.connect(mapStateToProps, mapDispatchToProps, {
-    updateUser: _actions.updateUser,
-    deleteUser: _actions.deleteUser
-})(ProfileView);
+}; // const mapDispatchToProps = (dispatch) => ({
+ //   deRegister: () => dispatch(deRegister()),
+ //   handleUpdate: (newUsername, newPassword, newEmail, newBirthday) =>
+ //     dispatch(handleUpdate(newUsername, newPassword, newEmail, newBirthday))
+ // });
+ // const mapStateToProps = (state) => ({
+ //   user: state.user.user,
+ // });
+ // export default connect(mapStateToProps, mapDispatchToProps, { updateUser, deleteUser } )(ProfileView);
 
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","axios":"7rA65","react-bootstrap/Col":"2D0r8","react-bootstrap/Row":"3fzwD","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","react-bootstrap/Form":"6A5ko","./profile-view.scss":"6hmiY","react-redux":"7GDa4","../../actions/actions":"5S6cN","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"6hmiY":[function() {},{}],"5S6cN":[function(require,module,exports) {
+},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","axios":"7rA65","react-bootstrap/Col":"2D0r8","react-bootstrap/Row":"3fzwD","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","react-bootstrap/Form":"6A5ko","./profile-view.scss":"6hmiY","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"6hmiY":[function() {},{}],"5S6cN":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
