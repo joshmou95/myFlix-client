@@ -1,8 +1,4 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 
 export class NavView extends React.Component {
