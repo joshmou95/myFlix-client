@@ -12,6 +12,7 @@ const mapStateToProps = state => {
   return { visibilityFilter };
 };
 
+// MoviesList props contains two properties, movies and visibilityFilter
 function MoviesList(props) {
   const { movies, visibilityFilter } = props;
   let filteredMovies = movies;
@@ -22,6 +23,7 @@ function MoviesList(props) {
 
   if (!movies) return <div className="main-view"/>;
 
+  // pass the visibilityFilter prop to VisibilityFilterInput
   return <>
     <Col md={12} className="m-3">
       <VisibilityFilterInput visibilityFilter={visibilityFilter} />
