@@ -9,15 +9,17 @@ export class NavView extends React.Component {
       user: null
     });
   }
+
   
-  render () {
+  render (props) {
+    const user = props
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="d-flex">
       <Navbar.Brand href={`/`}>MyFlix</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto">    
-        <Nav.Link href={`/users/${this.user}`}>Profile</Nav.Link>
+        <Nav.Link href={`/users/${user}`}>Profile</Nav.Link>
         <Nav.Link href={`/`} onClick={() => { this.onLoggedOut() }}>Log Out</Nav.Link>
       </Nav>
       </Navbar.Collapse>
