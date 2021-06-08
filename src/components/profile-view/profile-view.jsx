@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-// import { connect } from 'react-redux';
-// import { updateUser } from '../../actions/actions';
-// import { deleteUser } from '../../actions/actions';
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -18,19 +17,20 @@ import './profile-view.scss';
 export class ProfileView extends React.Component {
   constructor() {
     super();
+    
     (this.Username = null), (this.Password = null), (this.Email = null), (this.Birthday = null);
     this.state = {
-      Username: null,
-      Password: null,
-      Email: null,
-      Birthday: null,
+      Username: this.Username,
+      Password: this.Password,
+      Email: this.Email,
+      Birthday: this.Birthday,
       FavoriteMovies: [],
       validated: null
     };
   }
 
   componentDidMount() {
-    const accessToken = localStorage.getItem("token");
+    const accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
       this.getUser(accessToken);
     }
@@ -39,25 +39,17 @@ export class ProfileView extends React.Component {
   getUser(token) {
     const url = 'https://myflixdb2000.herokuapp.com/users/'
     const user = localStorage.getItem("user")
-
     axios
       .get(url + user, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-          FavoriteMovies: response.data.FavoriteMovies,
-        });
+        this.setState(response.data)
       })
       .catch(function (error) {
         console.log(error);
       });
   }
-
 
   removeFavorite(movie) {
     const token = localStorage.getItem("token");
@@ -161,13 +153,10 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const validated = this.state;
+    const { FavoriteMovies, validated } = this.state;
     const username = localStorage.getItem('user');
     const { movies } = this.props;
     // const user = this.state;  
-    const favoriteMovieList = movies.filter((movie) => {
-      return this.state.FavoriteMovies.includes(movie._id);
-    });
 
   return (
     <div>
@@ -207,7 +196,7 @@ export class ProfileView extends React.Component {
                   <Form.Label>Birthday:</Form.Label>
                   <Form.Control type="date"
                   onChange={(e) => this.setBirthday(e.target.value )} />
-                  <Form.Control.Feedback type='invalid'>Please enter a valid birthday.</Form.Control.Feedback>
+                  <Form.Control.Feedback type='invalid'>Please enter a valid date.</Form.Control.Feedback>
                 </Form.Group>
                 <Button variant="dark" type="submit">Update</Button><hr />
                 <p>Deregister Account: - Cannot be undone!</p>
@@ -218,24 +207,29 @@ export class ProfileView extends React.Component {
 
         </Card.Body>
       </Card>
-      <h3>{username}'s Favorite Movies</h3>
-        <div className="d-flex">
-          {favoriteMovieList.map((m) => {
-            return (
-              <Row key={m._id} md={3} className="d-flex-wrap justify-content-center">
-              <Col className="m-1">
-              <Card movie={m} className="movie-card p-2">
-                <Card.Img className="poster" variant="top" src={m.ImagePath} />
-                <Card.Body>
-                  <Card.Title className="title">{m.Title}</Card.Title>
-                    <Button variant="danger" onClick={() => this.removeFavorite(m)}>Remove</Button>
-                </Card.Body>
-              </Card>
-              </Col>
-              </Row>
-            );
-          })}
-        </div>
+      <Card className='profile-card p-2 m-2'>
+        <Card.Title className='profile-title'>{username}'s Favorite Movies</Card.Title>
+          {FavoriteMovies.length === 0 && <div className='card-content'>You don't have any favorite movies yet!</div>}
+          <div className='favorites-container'>
+              {FavoriteMovies.length > 0 && movies.map((movie) => {
+                if (movie._id === FavoriteMovies.find((favMovie) => favMovie === movie._id)) {
+                  return (
+                    <div key={movie._id}>
+                        <Card style={{ width: '12rem', float: 'left' }}>
+                            <Card.Img className='favorites-movie p-2' variant="top" src={movie.ImagePath} />
+                            <Card.Body className='movie-card-body'>
+                              <Button className='remove-favorite' variant='danger' 
+                                onClick={(e) => this.removeFavorite(e, movie._id)}> Remove
+                              </Button>
+                            </Card.Body>
+                          </Card>
+
+                    </div>
+                    );
+                    }
+                  })}
+          </div>
+      </Card>
     </div>
   )}
 }
@@ -243,17 +237,11 @@ export class ProfileView extends React.Component {
 PropTypes.checkPropTypes(ProfileView.propTypes);
 ProfileView.propTypes = {
   movies: PropTypes.array.isRequired,
-  onBackClick: PropTypes.func.isRequired
 }
 
-// const mapDispatchToProps = (dispatch) => ({
-//   deRegister: () => dispatch(deRegister()),
-//   handleUpdate: (newUsername, newPassword, newEmail, newBirthday) =>
-//     dispatch(handleUpdate(newUsername, newPassword, newEmail, newBirthday))
-// });
+const mapStateToProps = state => {
+  const { user, movies } = state;
+  return { user, movies };
+}
 
-// const mapStateToProps = (state) => ({
-//   user: state.user.user,
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps, { updateUser, deleteUser } )(ProfileView);
+export default connect(mapStateToProps, { setUser })(ProfileView);
