@@ -99,7 +99,7 @@ class MainView extends React.Component {
         {/* <NavView /><br /> */}
           <Row className="main-view justify-content-md-center">
             <Route exact path="/" render={() => {
-              if (!user) return <LoginView user={user} onLoggedIn={user => this.onLoggedIn(user)} />;
+              if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return (
               <Container fluid className="d-flex flex-column">
@@ -119,7 +119,7 @@ class MainView extends React.Component {
               return <RegistrationView />
             }} />
             <Route path="/movies/:movieId" render={({ match, history }) => {
-              if (!user) return <LoginView user={user} onLoggedIn={user => this.onLoggedIn(user)} />;
+              if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return (
                 <Container>
@@ -139,7 +139,7 @@ class MainView extends React.Component {
               );
             }} />
             <Route path="/genres/:name" render={ ({ match, history }) => {
-              if (!user) return <LoginView user={user} onLoggedIn={user => this.onLoggedIn(user)} />;
+              if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return (
                 <Container>
@@ -160,13 +160,13 @@ class MainView extends React.Component {
               );
             }} />
             <Route path="/directors/:name" render={({ match, history }) => {
-              if (!user) return <LoginView user={user} onLoggedIn={user => this.onLoggedIn(user)} />;
+              if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return (
                 <Container>
                   <Row>
                     <Col className="p-0">
-                      <NavView user={user} />
+                      <NavView user={user}  />
                     </Col>
                   </Row>
                   <Row className="d-flex justify-content-center">
@@ -181,8 +181,8 @@ class MainView extends React.Component {
                 </Container>
               );
             }} />
-            <Route path="/users/:Username" render={({ history }) => {
-              if (!user) return <LoginView user={user} onLoggedIn={user => this.onLoggedIn(user)} />;
+            <Route path="/profile" render={({ history }) => {
+              if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return ( 
                 <Container>
@@ -193,9 +193,9 @@ class MainView extends React.Component {
                   </Row>
                   <Row className="d-flex justify-content-center">
                     <Col md={10}>
-                      <ProfileView onLoggedIn={user => this.onLoggedIn(user)}
-                      movies={movies} user={user}
-                      onBackClick={() => history.goBack()} />
+                      <ProfileView 
+                      user={user} 
+                      movies={movies} />
                     </Col>
                   </Row>  
                 </Container>
@@ -208,8 +208,16 @@ class MainView extends React.Component {
 }
 
 // mapStateToProps take the state as a parameter and returns an object
+// let mapStateToProps = state => {
+//   return { movies: state.movies }
+// }
 let mapStateToProps = state => {
-  return { movies: state.movies, user: state.user }
+  const { user, movies } = state;
+  return {
+    user,
+    movies
+  }
+  
 }
 
 // movies state is extracted from the store through the connect() function
