@@ -30266,7 +30266,7 @@ class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie  } = this.props;
         return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "d-flex movie-card w-auto justify-content-center",
+            className: "d-flex movie-card justify-content-center",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
                 lineNumber: 14
@@ -30277,14 +30277,14 @@ class MovieCard extends _reactDefault.default.Component {
                 width: '25rem',
                 float: 'left'
             },
-            className: "m-2 p-2",
+            className: "m-2 p-1",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
                 lineNumber: 15
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
-            className: "poster p-auto",
+            className: "poster",
             variant: "top",
             src: movie.ImagePath,
             __source: {
@@ -30299,7 +30299,7 @@ class MovieCard extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
-            className: "title h-auto w-100",
+            className: "title",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
                 lineNumber: 18
