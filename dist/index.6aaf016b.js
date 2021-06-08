@@ -29912,6 +29912,7 @@ class MovieView extends _reactDefault.default.Component {
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
             className: "movie-view p-1 m-3",
+            width: "12rem",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 36
@@ -29924,7 +29925,11 @@ class MovieView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
-            className: "poster m-3",
+            style: {
+                width: '20rem',
+                float: 'left'
+            },
+            className: "m-3",
             src: movie.ImagePath,
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
