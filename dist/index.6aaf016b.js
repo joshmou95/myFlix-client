@@ -29904,15 +29904,17 @@ class MovieView extends _reactDefault.default.Component {
     render() {
         const { movie , onBackClick  } = this.props;
         return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "d-flex w-auto justify-content-center",
+            className: "d-flex h-auto justify-content-center",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 35
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
+            style: {
+                width: '50rem'
+            },
             className: "movie-view p-1 m-3",
-            width: "12rem",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 36
@@ -29925,11 +29927,7 @@ class MovieView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
-            style: {
-                width: '20rem',
-                float: 'left'
-            },
-            className: "m-3",
+            className: "m-3 w-50",
             src: movie.ImagePath,
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
@@ -30273,6 +30271,10 @@ class MovieCard extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
+            style: {
+                width: '25rem',
+                float: 'left'
+            },
             className: "m-2 p-2",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
