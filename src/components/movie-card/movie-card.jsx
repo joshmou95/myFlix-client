@@ -12,7 +12,7 @@ export class MovieCard extends React.Component {
 
     return (
       <div className="d-flex movie-card w-auto justify-content-center">
-        <Card className="m-2 p-2">
+        <Card style={{ width: '25rem', float: 'left' }} className="m-2 p-2">
           <Card.Img className="poster p-auto" variant="top" src={movie.ImagePath} />
           <Card.Body>
             <Card.Title className="title h-auto w-100">{movie.Title}</Card.Title>
