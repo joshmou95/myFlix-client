@@ -17,13 +17,12 @@ import './profile-view.scss';
 export class ProfileView extends React.Component {
   constructor() {
     super();
-    
     (this.Username = null), (this.Password = null), (this.Email = null), (this.Birthday = null);
     this.state = {
-      Username: this.Username,
-      Password: this.Password,
-      Email: this.Email,
-      Birthday: this.Birthday,
+      Username: null,
+      Password: null,
+      Email: null,
+      Birthday: null,
       FavoriteMovies: [],
       validated: null
     };
@@ -219,11 +218,10 @@ export class ProfileView extends React.Component {
                             <Card.Img className='favorites-movie p-2' variant="top" src={movie.ImagePath} />
                             <Card.Body className='movie-card-body'>
                               <Button className='remove-favorite' variant='danger' 
-                                onClick={(e) => this.removeFavorite(e, movie._id)}> Remove
+                                onClick={() => this.removeFavorite(movie)}> Remove
                               </Button>
                             </Card.Body>
                           </Card>
-
                     </div>
                     );
                     }
