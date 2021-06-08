@@ -26,6 +26,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import './main-view.scss';
+import favoritesView from '../favorites-view/favorites-view';
 
 // exposes MainView class component to use by other components
 class MainView extends React.Component {
