@@ -22087,8 +22087,6 @@ var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
 var _reactBootstrap = require("react-bootstrap");
 var _mainViewScss = require("./main-view.scss");
-var _favoritesView = require("../favorites-view/favorites-view");
-var _favoritesViewDefault = parcelHelpers.interopDefault(_favoritesView);
 // exposes MainView class component to use by other components
 class MainView extends _reactDefault.default.Component {
     //  Create the component
@@ -22341,7 +22339,7 @@ exports.default = _reactRedux.connect(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","axios":"7rA65","./main-view.scss":"4uf5V","react-router-dom":"1PMSK","../login-view/login-view":"6np1g","../movie-view/movie-view":"4csCt","../director-view/director-view/":"3xR74","../genre-view/genre-view":"4A5yZ","../registration-view/registration-view":"3FA8X","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","react-bootstrap":"4n7hB","../profile-view/profile-view":"3K3JC","react-redux":"7GDa4","../../actions/actions":"5S6cN","../nav-view/nav-view":"2r1Kf","../movies-list/movies-list":"3pSg5","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","../favorites-view/favorites-view":"64dLw"}],"7rA65":[function(require,module,exports) {
+},{"react":"3b2NM","axios":"7rA65","./main-view.scss":"4uf5V","react-router-dom":"1PMSK","../login-view/login-view":"6np1g","../movie-view/movie-view":"4csCt","../director-view/director-view/":"3xR74","../genre-view/genre-view":"4A5yZ","../registration-view/registration-view":"3FA8X","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","react-bootstrap":"4n7hB","../profile-view/profile-view":"3K3JC","react-redux":"7GDa4","../../actions/actions":"5S6cN","../nav-view/nav-view":"2r1Kf","../movies-list/movies-list":"3pSg5","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"7rA65":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"4qfhW"}],"4qfhW":[function(require,module,exports) {
@@ -41933,190 +41931,7 @@ exports.default = _reactRedux.connect(null, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-redux":"7GDa4","react-bootstrap/Form":"6A5ko","../../actions/actions.js":"5S6cN","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"64dLw":[function(require,module,exports) {
-var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "FavoritesView", ()=>FavoritesView
-);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactRedux = require("react-redux");
-var _actions = require("../../actions/actions");
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _card = require("react-bootstrap/Card");
-var _cardDefault = parcelHelpers.interopDefault(_card);
-var _col = require("react-bootstrap/Col");
-var _colDefault = parcelHelpers.interopDefault(_col);
-var _row = require("react-bootstrap/Row");
-var _rowDefault = parcelHelpers.interopDefault(_row);
-var _form = require("react-bootstrap/Form");
-var _formDefault = parcelHelpers.interopDefault(_form);
-class FavoritesView extends _reactDefault.default.Component {
-    constructor(){
-        super();
-        this.Username = null, this.Password = null, this.Email = null, this.Birthday = null;
-        this.state = {
-            Username: this.Username,
-            Password: this.Password,
-            Email: this.Email,
-            Birthday: this.Birthday,
-            FavoriteMovies: [],
-            validated: null
-        };
-    }
-    componentDidMount() {
-        const accessToken = localStorage.getItem('token');
-        if (accessToken !== null) this.getUser(accessToken);
-    }
-    getUser(token) {
-        const url = 'https://myflixdb2000.herokuapp.com/users/';
-        const user = localStorage.getItem("user");
-        _axiosDefault.default.get(url + user, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            this.setState(response.data);
-        }).catch(function(error) {
-            console.log(error);
-        });
-    }
-    removeFavorite(movie) {
-        const token = localStorage.getItem("token");
-        const url = 'https://myflixdb2000.herokuapp.com/users/';
-        const user = localStorage.getItem("user");
-        _axiosDefault.default.delete(url + user + "/movies/" + movie._id, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            console.log(response);
-            alert("Removed from favorites");
-            this.componentDidMount();
-        }).catch(function(error) {
-            console.log(error);
-        });
-    }
-    render() {
-        const { FavoriteMovies , validated  } = this.state;
-        const username = localStorage.getItem('user');
-        const { movies  } = this.props;
-        // const user = this.state;  
-        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
-            __source: {
-                fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 78
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
-            className: "profile-card p-2 m-2",
-            __source: {
-                fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 80
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
-            className: "profile-title",
-            __source: {
-                fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 81
-            },
-            __self: this
-        }, username, "'s Favorite Movies"), FavoriteMovies.length === 0 && /*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "card-content",
-            __source: {
-                fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 82
-            },
-            __self: this
-        }, "You don't have any favorite movies yet!"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "favorites-container",
-            __source: {
-                fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 83
-            },
-            __self: this
-        }, FavoriteMovies.length > 0 && movies.map((movie)=>{
-            if (movie._id === FavoriteMovies.find((favMovie)=>favMovie === movie._id
-            )) return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
-                key: movie._id,
-                __source: {
-                    fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 87
-                },
-                __self: this
-            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
-                style: {
-                    width: '12rem',
-                    float: 'left'
-                },
-                __source: {
-                    fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 88
-                },
-                __self: this
-            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
-                className: "favorites-movie p-2",
-                variant: "top",
-                src: movie.ImagePath,
-                __source: {
-                    fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 89
-                },
-                __self: this
-            }), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
-                className: "movie-card-body",
-                __source: {
-                    fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 90
-                },
-                __self: this
-            }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-                className: "remove-favorite",
-                variant: "danger",
-                onClick: (e)=>this.removeFavorite(e, movie._id)
-                ,
-                __source: {
-                    fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 91
-                },
-                __self: this
-            }, " Remove")))));
-        })))));
-    }
-}
-// PropTypes.checkPropTypes(FavoritesView.propTypes);
-// FavoritesView.propTypes = {
-//   movies: PropTypes.array.isRequired,
-// }
-const mapStateToProps = (state)=>{
-    const { user , movies  } = state;
-    return {
-        user,
-        movies
-    };
-};
-exports.default = _reactRedux.connect(mapStateToProps, {
-    setUser: _actions.setUser
-})(FavoritesView);
-
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"3b2NM","prop-types":"4dfy5","axios":"7rA65","react-redux":"7GDa4","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","../../actions/actions":"5S6cN","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-bootstrap/Col":"2D0r8","react-bootstrap/Row":"3fzwD","react-bootstrap/Form":"6A5ko"}],"3rvpz":[function() {},{}],"7panR":[function(require,module,exports) {
+},{"react":"3b2NM","react-redux":"7GDa4","react-bootstrap/Form":"6A5ko","../../actions/actions.js":"5S6cN","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3rvpz":[function() {},{}],"7panR":[function(require,module,exports) {
 'use strict';
 Object.defineProperty(exports, '__esModule', {
     value: true
