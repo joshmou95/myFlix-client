@@ -30204,6 +30204,10 @@ class DirectorView extends _reactDefault.default.Component {
             __self: this
         }), movies.map((m)=>{
             if (m.Director.Name === director.Name) return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+                style: {
+                    width: '15rem',
+                    float: 'left'
+                },
                 className: "d-inline-flex align-content-start",
                 key: m._id,
                 __source: {
@@ -40918,6 +40922,9 @@ class GenreView extends _reactDefault.default.Component {
             __self: this
         }), movies.map((m)=>{
             if (m.Genre.Name === genre.Name) return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+                style: {
+                    width: '15rem'
+                },
                 className: "movie-card d-inline-flex align-content-start",
                 key: m._id,
                 __source: {
