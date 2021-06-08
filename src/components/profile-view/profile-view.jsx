@@ -24,7 +24,7 @@ export class ProfileView extends React.Component {
       Email: null,
       Birthday: null,
       FavoriteMovies: [],
-      validated: null
+      validated: null,
     };
   }
 
@@ -224,8 +224,8 @@ export class ProfileView extends React.Component {
                           </Card>
                     </div>
                     );
-                    }
-                  })}
+                  }
+                })}
           </div>
       </Card>
     </div>
