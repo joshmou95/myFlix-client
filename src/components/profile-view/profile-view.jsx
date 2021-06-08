@@ -239,9 +239,12 @@ ProfileView.propTypes = {
   movies: PropTypes.array.isRequired,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { user, movies } = state;
-  return { user, movies };
+  return { 
+    user, 
+    movies 
+  }
 }
 
 export default connect(mapStateToProps, { setUser })(ProfileView);
