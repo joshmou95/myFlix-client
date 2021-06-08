@@ -40925,7 +40925,7 @@ class GenreView extends _reactDefault.default.Component {
                 style: {
                     width: '15rem'
                 },
-                className: "movie-card d-inline-flex align-content-start",
+                className: "d-inline-flex align-content-start",
                 key: m._id,
                 __source: {
                     fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/genre-view/genre-view.jsx",
