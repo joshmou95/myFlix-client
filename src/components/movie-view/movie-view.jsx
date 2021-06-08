@@ -32,10 +32,10 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="d-flex w-auto justify-content-center">
-      <Card className="movie-view p-1 m-3" width="12rem">
+      <div className="d-flex h-auto justify-content-center">
+      <Card style={{ width: '50rem'}} className="movie-view p-1 m-3">
         <div>
-          <Card.Img style={{ width: '20rem', float: 'left' }} className="m-3" src={movie.ImagePath} />
+          <Card.Img className="m-3 w-50" src={movie.ImagePath} />
         </div>
         <Card.Body>
           <span className="label">Title: </span>
