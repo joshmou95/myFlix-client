@@ -31,9 +31,9 @@ import './main-view.scss';
 // exposes MainView class component to use by other components
 class MainView extends React.Component {
   //  Create the component
-  constructor () {
+  constructor (props) {
     // Initialize the state
-    super();
+    super(props);
     // executed when the component is created in memory
     // User is set to null
     this.state = {
@@ -182,7 +182,7 @@ class MainView extends React.Component {
                 </Container>
               );
             }} />
-            <Route path="/profile" render={({ history }) => {
+            <Route path="/users/:Username" render={() => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return ( 
@@ -213,10 +213,10 @@ class MainView extends React.Component {
 //   return { movies: state.movies }
 // }
 let mapStateToProps = state => {
-  const { user, movies } = state;
+  // const { user, movies } = state;
   return {
-    user,
-    movies
+    user: state.user,
+    movies: state.movies
   }
   
 }
