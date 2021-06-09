@@ -31,9 +31,9 @@ import './main-view.scss';
 // exposes MainView class component to use by other components
 class MainView extends React.Component {
   //  Create the component
-  constructor () {
+  constructor (props) {
     // Initialize the state
-    super();
+    super(props);
     // executed when the component is created in memory
     // User is set to null
     this.state = {
@@ -94,13 +94,14 @@ class MainView extends React.Component {
     // #5 movies is extracted from this.props rather than this.state
     let { movies } = this.props;
     let { user } = this.state;
+    // token = localStorage.getItem('token');
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView */
     return (
         <Router>
         {/* <NavView /><br /> */}
           <Row className="main-view justify-content-md-center">
             <Route exact path="/" render={() => {
-              if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+              if ( !user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return (
               <Container fluid className="d-flex flex-column">
