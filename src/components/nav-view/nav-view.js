@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 export class NavView extends React.Component {
   constructor (props) {
     super (props)
+    this.onLoggedOut = this.onLoggedOut.bind(this);
   }
   
   onLoggedOut () {
