@@ -18,55 +18,10 @@ export class ProfileView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Username: '',
-      Password: '',
-      Email: '',
-      Birthday: '',
-      FavoriteMovies: [],
-      validated: null,
+      validated: null
     };
     this.handleUpdate = this.handleUpdate.bind(this);
     this.deRegister = this.deRegister.bind(this);
-  }
-
-  componentDidMount() {
-    const accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.getUser(accessToken);
-    }
-  }
-
-  getUser(token) {
-    const url = 'https://myflixdb2000.herokuapp.com/users/'
-    const user = localStorage.getItem("user")
-    axios
-      .get(url + user, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        this.setState(response.data)
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  removeFavorite(movie) {
-    const token = localStorage.getItem("token");
-    const url = 'https://myflixdb2000.herokuapp.com/users/';
-    const user = localStorage.getItem("user");
-    
-    axios.delete(url + user + "/movies/" + movie._id, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        console.log(response);
-        alert("Removed from favorites");
-        this.componentDidMount();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   }
 
   handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
@@ -155,10 +110,10 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { FavoriteMovies, validated } = this.state;
+    const { validated } = this.state;
+    // const validated = null
     const username = localStorage.getItem('user');
     const { movies } = this.props;
-    // const user = this.state;  
 
   return (
     <div>
@@ -171,7 +126,7 @@ export class ProfileView extends React.Component {
                 <Form.Group controlId="BasicUsername">
                   <Form.Label>Username:</Form.Label>
                   <Form.Control type="text"
-                  placeholder="Change Username"
+                  placeholder="Enter current or new Username"
                   autoComplete="username"
                   onChange={(e) => this.setUsername(e.target.value )} 
                   pattern='[a-zA-Z0-9]{5,}'
@@ -206,30 +161,7 @@ export class ProfileView extends React.Component {
               </Col>
             </Row>
           </Form>
-
         </Card.Body>
-      </Card>
-      <Card className='profile-card p-2 m-2'>
-        <Card.Title className='profile-title'>{username}'s Favorite Movies</Card.Title>
-          {FavoriteMovies.length === 0 && <div className='card-content'>You don't have any favorite movies yet!</div>}
-          <div className='favorites-container'>
-              {FavoriteMovies.length > 0 && movies.map((movie) => {
-                if (movie._id === FavoriteMovies.find((favMovie) => favMovie === movie._id)) {
-                  return (
-                    <div key={movie._id}>
-                        <Card style={{ width: '12rem', float: 'left' }}>
-                            <Card.Img className='favorites-movie p-2' variant="top" src={movie.ImagePath} />
-                            <Card.Body className='movie-card-body'>
-                              <Button className='remove-favorite' variant='danger' 
-                                onClick={() => this.removeFavorite(movie)}> Remove
-                              </Button>
-                            </Card.Body>
-                          </Card>
-                    </div>
-                    );
-                  }
-                })}
-          </div>
       </Card>
     </div>
   )}
@@ -237,8 +169,9 @@ export class ProfileView extends React.Component {
 
 PropTypes.checkPropTypes(ProfileView.propTypes);
 ProfileView.propTypes = {
-  movies: PropTypes.array.isRequired,
+  user: PropTypes.string.isRequired,
 }
+
 
 const mapStateToProps = (state) => {
   const { user, movies } = state;
