@@ -8,8 +8,8 @@ import axios from 'axios';
 import './movie-view.scss';
 
 export class MovieView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
