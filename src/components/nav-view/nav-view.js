@@ -5,7 +5,7 @@ export class NavView extends React.Component {
   constructor (props) {
     super (props)
   }
-  
+
   onLoggedOut () {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -15,6 +15,7 @@ export class NavView extends React.Component {
   }
   
   render () {
+    const { user } = this.props;
 
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="d-flex">
