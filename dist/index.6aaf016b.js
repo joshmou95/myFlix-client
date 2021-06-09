@@ -879,10 +879,11 @@ var _reducers = require("./reducers/reducers");
 var _reducersDefault = parcelHelpers.interopDefault(_reducers);
 var _mainView = require("./components/main-view/main-view");
 var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
-var _reduxDevtoolsExtension = require("redux-devtools-extension");
+// import { devToolsEnhancer } from 'redux-devtools-extension';
 // Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
-const store = _redux.createStore(_reducersDefault.default, _reduxDevtoolsExtension.devToolsEnhancer());
+// const store = createStore(moviesApp, devToolsEnhancer());
+const store = _redux.createStore(_reducersDefault.default);
 // Main component (will eventually use all the others)
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
@@ -890,19 +891,19 @@ class MyFlixApplication extends _reactDefault.default.Component {
             store: store,
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/index.jsx",
-                lineNumber: 23
+                lineNumber: 24
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_containerDefault.default, {
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/index.jsx",
-                lineNumber: 24
+                lineNumber: 25
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_mainViewDefault.default, {
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/index.jsx",
-                lineNumber: 25
+                lineNumber: 26
             },
             __self: this
         }))));
@@ -918,7 +919,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-dom":"2sg1U","react-bootstrap/Container":"3Mt3t","redux":"7panR","react-redux":"7GDa4","./reducers/reducers":"2736c","./components/main-view/main-view":"3XIvK","redux-devtools-extension":"3vUkb","./index.scss":"3rvpz","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3b2NM":[function(require,module,exports) {
+},{"react":"3b2NM","react-dom":"2sg1U","react-bootstrap/Container":"3Mt3t","redux":"7panR","react-redux":"7GDa4","./reducers/reducers":"2736c","./components/main-view/main-view":"3XIvK","./index.scss":"3rvpz","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3b2NM":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react.development.js');
 
@@ -42599,21 +42600,6 @@ exports.default = _reactRedux.connect(mapStateToProps)(FavoritesView);
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","axios":"7rA65","react-redux":"7GDa4","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3vUkb":[function(require,module,exports) {
-'use strict';
-var compose = require('redux').compose;
-exports.__esModule = true;
-exports.composeWithDevTools = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : function() {
-    if (arguments.length === 0) return undefined;
-    if (typeof arguments[0] === 'object') return compose;
-    return compose.apply(null, arguments);
-};
-exports.devToolsEnhancer = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__ : function() {
-    return function(noop) {
-        return noop;
-    };
-};
-
-},{"redux":"7panR"}],"3rvpz":[function() {},{}]},["1j6wU","1LHGd","1IEIN"], "1IEIN", "parcelRequire279c")
+},{"react":"3b2NM","axios":"7rA65","react-redux":"7GDa4","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3rvpz":[function() {},{}]},["1j6wU","1LHGd","1IEIN"], "1IEIN", "parcelRequire279c")
 
 //# sourceMappingURL=index.6aaf016b.js.map
