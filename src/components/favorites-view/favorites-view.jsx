@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
-
 export class FavoritesView extends React.Component {
   constructor(props) {
     super(props);

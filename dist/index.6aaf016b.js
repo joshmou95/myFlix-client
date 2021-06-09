@@ -42505,35 +42505,35 @@ class FavoritesView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 70
+                lineNumber: 69
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
             className: "profile-card p-2 m-2",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 71
+                lineNumber: 70
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
             className: "profile-title",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 72
+                lineNumber: 71
             },
             __self: this
         }, this.props.user, "'s Favorite Movies"), FavoriteMovies.length === 0 && /*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "card-content",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 73
+                lineNumber: 72
             },
             __self: this
         }, "You don't have any favorite movies yet!"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "favorites-container",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                lineNumber: 74
+                lineNumber: 73
             },
             __self: this
         }, FavoriteMovies.length > 0 && movies.map((movie)=>{
@@ -42542,7 +42542,7 @@ class FavoritesView extends _reactDefault.default.Component {
                 key: movie._id,
                 __source: {
                     fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 78
+                    lineNumber: 77
                 },
                 __self: this
             }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
@@ -42552,7 +42552,7 @@ class FavoritesView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 79
+                    lineNumber: 78
                 },
                 __self: this
             }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
@@ -42561,14 +42561,14 @@ class FavoritesView extends _reactDefault.default.Component {
                 src: movie.ImagePath,
                 __source: {
                     fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 80
+                    lineNumber: 79
                 },
                 __self: this
             }), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
                 className: "movie-card-body",
                 __source: {
                     fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 81
+                    lineNumber: 80
                 },
                 __self: this
             }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -42578,7 +42578,7 @@ class FavoritesView extends _reactDefault.default.Component {
                 ,
                 __source: {
                     fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/favorites-view/favorites-view.jsx",
-                    lineNumber: 82
+                    lineNumber: 81
                 },
                 __self: this
             }, " Remove")))));
