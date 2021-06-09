@@ -15,17 +15,18 @@ import './profile-view.scss';
 
 
 export class ProfileView extends React.Component {
-  constructor() {
-    super();
-    (this.Username = null), (this.Password = null), (this.Email = null), (this.Birthday = null);
+  constructor(props) {
+    super(props);
     this.state = {
-      Username: null,
-      Password: null,
-      Email: null,
-      Birthday: null,
+      Username: '',
+      Password: '',
+      Email: '',
+      Birthday: '',
       FavoriteMovies: [],
       validated: null,
     };
+    this.handleUpdate = this.handleUpdate.bind(this);
+    this.deRegister = this.deRegister.bind(this);
   }
 
   componentDidMount() {
@@ -130,9 +131,7 @@ export class ProfileView extends React.Component {
     this.Birthday = input;
   }
 
-  deRegister(e) {
-    e.preventDefault();
-
+  deRegister() {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
     const url = 'https://myflixdb2000.herokuapp.com/users/';
@@ -140,13 +139,16 @@ export class ProfileView extends React.Component {
     axios.delete(url + user, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then(() => {
-        localStorage.removeItem('user');
-        localStorage.removeItem('token');
-        window.open('/register');
-        alert('Your account has been deleted');
+      .then( result => {
+        localStorage.clear();
+        setUser({
+          user: null,
+          token: null
+        });
+        window.open('/', '_self');
+        alert('Your account has been deleted!');
       })
-      .catch((e) => {
+      .catch(() => {
         console.log('error deleting the user');
       });
   }
@@ -199,7 +201,7 @@ export class ProfileView extends React.Component {
                 </Form.Group>
                 <Button variant="dark" type="submit">Update</Button><hr />
                 <p>Deregister Account: - Cannot be undone!</p>
-                <Button variant="danger" type="submit" onClick={(e) => this.deRegister(e)}>Deregister</Button>
+                <Button variant="danger" onClick={(e) => this.deRegister(e)}>Deregister</Button>
               </Col>
             </Row>
           </Form>
