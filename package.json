@@ -4,7 +4,8 @@
   "description": "Objective: <br> Using React, build the client-side for an application called myFlix based on its existing server-side code (REST API and database).",
   "main": "src/index.html",
   "scripts": {
-    "start": "cross-env port=8080 && react-scripts start",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-beta.3.1",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "parcel-bundler": "^1.12.5"
   }
 }
