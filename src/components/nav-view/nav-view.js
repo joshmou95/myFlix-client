@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export class NavView extends React.Component {
   constructor (props) {
@@ -18,11 +19,12 @@ export class NavView extends React.Component {
 
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="d-flex">
-      <Navbar.Brand href="/">MyFlix</Navbar.Brand>
+      <Navbar.Brand as={Link} to={"/"}>MyFlix
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto">    
-        <Nav.Link href={`/users/${this.props.user}`}>Profile</Nav.Link>
+        <Nav.Link as={Link} to={`/users/${this.props.user}`}>Profile</Nav.Link>
         <Nav.Link href="/" onClick={() => { this.onLoggedOut() }}>Log Out</Nav.Link>
       </Nav>
       </Navbar.Collapse>
