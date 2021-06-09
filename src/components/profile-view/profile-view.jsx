@@ -131,7 +131,8 @@ export class ProfileView extends React.Component {
     this.Birthday = input;
   }
 
-  deRegister() {
+  deRegister(e) {
+    e.preventDefault();
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
     const url = 'https://myflixdb2000.herokuapp.com/users/';
