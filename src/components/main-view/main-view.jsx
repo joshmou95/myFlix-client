@@ -20,12 +20,14 @@ import { GenreView } from '../genre-view/genre-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { NavView } from '../nav-view/nav-view';
+import { FavoritesView } from '../favorites-view/favorites-view';
 
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import './main-view.scss';
+import { FavoritesView } from '../favorites-view/favorites-view';
 
 
 // exposes MainView class component to use by other components
@@ -193,11 +195,14 @@ class MainView extends React.Component {
                   </Row>
                   <Row className="d-flex justify-content-center">
                     <Col md={10}>
-                      <ProfileView 
-                      user={user} 
-                      movies={movies} />
+                      <ProfileView user={user} />
                     </Col>
-                  </Row>  
+                  </Row> 
+                  <Row className="d-flex justify-content-center">
+                  <Col md={10}>
+                    <FavoritesView user={user} movies={movies} />
+                    </Col>  
+                  </Row>
                 </Container>
               );
             }} />
