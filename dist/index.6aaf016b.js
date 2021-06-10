@@ -30137,7 +30137,7 @@ class MovieCard extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
-            className: "p-1 w-auto",
+            className: "p-1",
             variant: "top",
             src: movie.ImagePath,
             __source: {
