@@ -54,13 +54,13 @@ export class MovieView extends React.Component {
             {movie.Director.Name}
           </Card.Text>
           <Link to={`/directors/${movie.Director.Name}`}>
-            <Button variant="secondary" className="m-auto">Director</Button>
+            <Button variant="secondary" className="mr-1 mt-1">Director</Button>
           </Link>
           <Link to={`/genres/${movie.Genre.Name}`}>
-            <Button variant="secondary" className="m-1">Genre</Button>
+            <Button variant="secondary" className="mr-1 mt-1">Genre</Button>
           </Link>
-          <Button variant="danger" onClick={() => { this.addFavorite(movie); }}>Favorite</Button>
-          <Button variant="dark" className="m-1" onClick={() => { onBackClick(null); }}>Back</Button>
+          <Button variant="danger" className="mr-1 mt-1" onClick={() => { this.addFavorite(movie); }}>Favorite</Button>
+          <Button variant="dark" className="mr-1 mt-1" onClick={() => { onBackClick(null); }}>Back</Button>
         </Card.Body>
       </Card>
       </Col>

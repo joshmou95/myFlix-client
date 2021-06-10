@@ -30868,7 +30868,7 @@ class MovieView extends _reactDefault.default.Component {
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
             variant: "secondary",
-            className: "m-auto",
+            className: "mr-1 mt-1",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 57
@@ -30883,7 +30883,7 @@ class MovieView extends _reactDefault.default.Component {
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
             variant: "secondary",
-            className: "m-1",
+            className: "mr-1 mt-1",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 60
@@ -30891,6 +30891,7 @@ class MovieView extends _reactDefault.default.Component {
             __self: this
         }, "Genre")), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
             variant: "danger",
+            className: "mr-1 mt-1",
             onClick: ()=>{
                 this.addFavorite(movie);
             },
@@ -30901,7 +30902,7 @@ class MovieView extends _reactDefault.default.Component {
             __self: this
         }, "Favorite"), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
             variant: "dark",
-            className: "m-1",
+            className: "mr-1 mt-1",
             onClick: ()=>{
                 onBackClick(null);
             },
