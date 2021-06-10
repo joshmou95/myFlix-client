@@ -113,15 +113,15 @@ export class ProfileView extends React.Component {
     const { validated } = this.state;
     // const validated = null
     const username = localStorage.getItem('user');
-    const { movies } = this.props;
+    const { movies, onBackClick } = this.props;
 
   return (
     <div>
-      <Card className="m-3">
+      <Card className="mt-3">
         <Card.Body>
           <Form noValidate validated={validated} className='update-form' onSubmit={(e) => this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
             <Row className="justify-content-center">
-              <Col xs={8} lg={6}><br></br>
+              <Col xs={10} md={8} lg={6}>
                 <h5>Update your Profile</h5>
                 <Form.Group controlId="BasicUsername">
                   <Form.Label>Username:</Form.Label>
@@ -156,6 +156,7 @@ export class ProfileView extends React.Component {
                   <Form.Control.Feedback type='invalid'>Please enter a valid date.</Form.Control.Feedback>
                 </Form.Group>
                 <Button variant="dark" type="submit">Update</Button><hr />
+                <Button variant="dark" className="m-1" onClick={() => { onBackClick(null); }}>Back</Button>
                 <p>Deregister Account: - Cannot be undone!</p>
                 <Button variant="danger" onClick={(e) => this.deRegister(e)}>Deregister</Button>
               </Col>
@@ -170,6 +171,7 @@ export class ProfileView extends React.Component {
 PropTypes.checkPropTypes(ProfileView.propTypes);
 ProfileView.propTypes = {
   user: PropTypes.string.isRequired,
+  onBackClick: PropTypes.func.isRequired
 }
 
 
