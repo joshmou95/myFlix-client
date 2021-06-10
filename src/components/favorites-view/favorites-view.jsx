@@ -67,7 +67,7 @@ export class FavoritesView extends React.Component {
 
   return (
     <div>
-      <Card className='profile-card p-2 m-2'>
+      <Card className='profile-card p-3 mt-2'>
         <Card.Title className='profile-title'>{this.props.user}'s Favorite Movies</Card.Title>
           {FavoriteMovies.length === 0 && <div className='card-content'>You don't have any favorite movies yet!</div>}
           <div className='favorites-container'>
@@ -75,7 +75,7 @@ export class FavoritesView extends React.Component {
                 if (movie._id === FavoriteMovies.find((favMovie) => favMovie === movie._id)) {
                   return (
                     <div key={movie._id}>
-                        <Card style={{ width: '12rem', float: 'left' }}>
+                        <Card style={{ width: '15rem', float: 'left' }} className='d-inline-flex align-content-start m-1'>
                             <Card.Img className='favorites-movie p-2' variant="top" src={movie.ImagePath} />
                             <Card.Body className='movie-card-body'>
                               <Button className='remove-favorite' variant='danger' 

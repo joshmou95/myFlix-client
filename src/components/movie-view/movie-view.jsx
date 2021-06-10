@@ -38,7 +38,7 @@ export class MovieView extends React.Component {
       <Col>
       <Card className="movie-view mt-3">
         <div>
-          <Card.Img className="m-3 w-75" src={movie.ImagePath} />
+          <Card.Img className="poster m-3" src={movie.ImagePath} />
         </div>
         <Card.Body>
           <span className="label">Title: </span>

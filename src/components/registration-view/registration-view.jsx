@@ -38,56 +38,58 @@ export function RegistrationView (props) {
   };
 
   return (
-    <Card md={6} className="p-4 m-3 justify-content-md-center">
-      <Col>
-        <Form noValidate validated={validated}>
-          <h3>Register for MyFlix</h3>
-          <Form.Group controlId="formUsername">
-            <Form.Label>Username:</Form.Label>
-            <Form.Control type="text" 
-            placeholder="Enter username" 
-            value={username}
-            autoComplete="username"
-            onChange={e => setUsername(e.target.value)} 
-            pattern='[a-zA-Z0-9]{5,}'
-            minLength="5" required />
-            <Form.Control.Feedback type='invalid'>Enter a Username with at least 5 alphanumeric characters</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group controlId="formPassword">
-            <Form.Label>Password:</Form.Label>
-            <Form.Control type="password" 
-            placeholder="Enter password" 
-            value={password}
-            autoComplete="password"
-            onChange={e => setPassword(e.target.value)} 
-            minLength="5" required />
-            <Form.Control.Feedback type='invalid'>Enter a password with at least 5 characters</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group controlId="FormEmail">
-            <Form.Label>Email:</Form.Label>
-            <Form.Control type="email" 
-            placeholder="Enter email" 
-            value={email}
-            autoComplete="email"
-            onChange={e => setEmail(e.target.value)} required />
-            <Form.Control.Feedback type='invalid'>Please enter a valid email address.</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group controlId="formBirthday">
-            <Form.Label>Birthday:</Form.Label>
-            <Form.Control type="date" 
-            value={birthday} 
-            onChange={e => setBirthday(e.target.value)} />
-            <Form.Control.Feedback type='invalid'>Please enter a valid birthday.</Form.Control.Feedback>
-          </Form.Group>
-          <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
-          <hr />
-          <p>Already have an account?</p>
-          <Link to="/">
-              <Button variant="info" type="button">Login</Button>
-          </Link>
-        </Form>
-      </Col>
-    </Card>
+    <Row className="d-flex justify-content-center">
+      <Card className="align-self-center p-3 m-1">
+        <Col>
+          <Form noValidate validated={validated}>
+            <h3>Register for MyFlix</h3>
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username:</Form.Label>
+              <Form.Control type="text" 
+              placeholder="Enter username" 
+              value={username}
+              autoComplete="username"
+              onChange={e => setUsername(e.target.value)} 
+              pattern='[a-zA-Z0-9]{5,}'
+              minLength="5" required />
+              <Form.Control.Feedback type='invalid'>Enter a Username with at least 5 alphanumeric characters</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control type="password" 
+              placeholder="Enter password" 
+              value={password}
+              autoComplete="password"
+              onChange={e => setPassword(e.target.value)} 
+              minLength="5" required />
+              <Form.Control.Feedback type='invalid'>Enter a password with at least 5 characters</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="FormEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control type="email" 
+              placeholder="Enter email" 
+              value={email}
+              autoComplete="email"
+              onChange={e => setEmail(e.target.value)} required />
+              <Form.Control.Feedback type='invalid'>Please enter a valid email address.</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="formBirthday">
+              <Form.Label>Birthday:</Form.Label>
+              <Form.Control type="date" 
+              value={birthday} 
+              onChange={e => setBirthday(e.target.value)} />
+              <Form.Control.Feedback type='invalid'>Please enter a valid birthday.</Form.Control.Feedback>
+            </Form.Group>
+            <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
+            <hr />
+            <p>Already have an account?</p>
+            <Link to="/">
+                <Button variant="info" type="button">Login</Button>
+            </Link><br />
+          </Form>
+        </Col>
+      </Card>
+    </Row>
   );
 }
 RegistrationView.propTypes = {
