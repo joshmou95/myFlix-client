@@ -130,7 +130,7 @@ class MainView extends React.Component {
                     </Col>
                   </Row>
                   <Row className="d-flex justify-content-center">
-                    <Col md={8}>
+                    <Col sm={12} md={10} lg={8}>
                       <MovieView 
                       movie={movies.find(m => m._id === match.params.movieId)} 
                       onBackClick={() => history.goBack()} />
@@ -182,7 +182,7 @@ class MainView extends React.Component {
                 </Container>
               );
             }} />
-            <Route path="/users/:Username" render={() => {
+            <Route path="/users/:Username" render={({ history }) => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return ( 
@@ -194,7 +194,9 @@ class MainView extends React.Component {
                   </Row>
                   <Row className="d-flex justify-content-center">
                     <Col md={10}>
-                      <ProfileView user={user} />
+                      <ProfileView 
+                      user={user}
+                      onBackClick={() => history.goBack()} />
                     </Col>
                   </Row> 
                   <Row className="d-flex justify-content-center">

@@ -1,5 +1,17 @@
-.movie-card {
-  max-width: 100%;
+@media (min-width: 768px) {
+  .movie-card {
+    height: 31rem;
+  }
+}
+@media (min-width: 992px) {
+  .movie-card {
+    height: 33rem;
+  }
+}
+@media (min-width: 1200px) {
+  .movie-card {
+    height: 31rem;
+  }
 }
 
 
