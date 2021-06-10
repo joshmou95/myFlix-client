@@ -1,7 +1,12 @@
+@media screen and (max-width: 768px) {
+  .height {
+    height: 31rem;
+  }
+}
+
 @media (min-width: 768px) {
   .movie-card {
     height: 31rem;
-    width: auto;
   }
 }
 
@@ -15,6 +20,5 @@
 @media (min-width: 1200px) {
   .movie-card {
     height: 31rem;
-    width: auto;
   }
 }
