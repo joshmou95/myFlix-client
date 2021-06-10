@@ -880,10 +880,14 @@ var _reducersDefault = parcelHelpers.interopDefault(_reducers);
 var _mainView = require("./components/main-view/main-view");
 var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
 // import { devToolsEnhancer } from 'redux-devtools-extension';
-// Import statement to indicate that you need to bundle `./index.scss`
+var _logOnlyInProduction = require("redux-devtools-extension/logOnlyInProduction");
 var _indexScss = require("./index.scss");
-// const store = createStore(moviesApp, devToolsEnhancer());
-const store = _redux.createStore(_reducersDefault.default);
+const store = _redux.createStore(_reducersDefault.default, _logOnlyInProduction.devToolsEnhancer());
+// const store = createStore(moviesApp);
+// const actionSanitizer = (action) => (
+//   action.type === 'FILE_DOWNLOAD_SUCCESS' && action.data ?
+//   { ...action, data: '<<LONG_BLOB>>' } : action
+// );
 // Main component (will eventually use all the others)
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
@@ -891,19 +895,19 @@ class MyFlixApplication extends _reactDefault.default.Component {
             store: store,
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/index.jsx",
-                lineNumber: 24
+                lineNumber: 29
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_containerDefault.default, {
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/index.jsx",
-                lineNumber: 25
+                lineNumber: 30
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_mainViewDefault.default, {
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/index.jsx",
-                lineNumber: 26
+                lineNumber: 31
             },
             __self: this
         }))));
@@ -919,7 +923,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-dom":"2sg1U","react-bootstrap/Container":"3Mt3t","redux":"7panR","react-redux":"7GDa4","./reducers/reducers":"2736c","./components/main-view/main-view":"3XIvK","./index.scss":"3rvpz","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3b2NM":[function(require,module,exports) {
+},{"react":"3b2NM","react-dom":"2sg1U","react-bootstrap/Container":"3Mt3t","redux":"7panR","react-redux":"7GDa4","./reducers/reducers":"2736c","./components/main-view/main-view":"3XIvK","./index.scss":"3rvpz","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","redux-devtools-extension/logOnlyInProduction":"5PUpx"}],"3b2NM":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react.development.js');
 
@@ -30540,11 +30544,9 @@ function LoginView(props) {
     const validated = _react.useState(null);
     const handleSubmit = (e)=>{
         e.preventDefault();
-        /* Send a request to the server for authentication */ _axiosDefault.default.post('https://myflixdb2000.herokuapp.com/login', null, {
-            params: {
-                Username: username,
-                Password: password
-            }
+        /* Send a request to the server for authentication */ _axiosDefault.default.post('https://myflixdb2000.herokuapp.com/login', {
+            username: username,
+            password: password
         }).then((response)=>{
             const data = response.data;
             props.onLoggedIn(data);
@@ -30557,13 +30559,13 @@ function LoginView(props) {
         className: "p-4 m-3 justify-content-md-center",
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 38
+            lineNumber: 37
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 39
+            lineNumber: 38
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
@@ -30571,32 +30573,32 @@ function LoginView(props) {
         validated: validated,
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 40
+            lineNumber: 39
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement("br", {
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 41
+            lineNumber: 40
         },
         __self: this
     }), /*#__PURE__*/ _reactDefault.default.createElement("h3", {
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 42
+            lineNumber: 41
         },
         __self: this
     }, "Login to MyFlix"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
         controlId: "formUsername",
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 43
+            lineNumber: 42
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 44
+            lineNumber: 43
         },
         __self: this
     }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -30611,27 +30613,27 @@ function LoginView(props) {
         minLength: "5",
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 45
+            lineNumber: 44
         },
         __self: this
     }), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control.Feedback, {
         type: "invalid",
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 53
+            lineNumber: 52
         },
         __self: this
     }, "Enter your Username with at least 5 characters")), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
         controlId: "formPassword",
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 55
+            lineNumber: 54
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 56
+            lineNumber: 55
         },
         __self: this
     }, "Password:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -30645,14 +30647,14 @@ function LoginView(props) {
         required: true,
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 57
+            lineNumber: 56
         },
         __self: this
     }), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control.Feedback, {
         type: "invalid",
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 65
+            lineNumber: 64
         },
         __self: this
     }, "Enter your password with at least 5 characters")), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -30661,26 +30663,26 @@ function LoginView(props) {
         onClick: handleSubmit,
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 67
+            lineNumber: 66
         },
         __self: this
     }, "Submit "), /*#__PURE__*/ _reactDefault.default.createElement("hr", {
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 68
+            lineNumber: 67
         },
         __self: this
     }), /*#__PURE__*/ _reactDefault.default.createElement("p", {
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 69
+            lineNumber: 68
         },
         __self: this
     }, "Don't have an account?"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
         to: "/register",
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 70
+            lineNumber: 69
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -30688,7 +30690,7 @@ function LoginView(props) {
         type: "button",
         __source: {
             fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 71
+            lineNumber: 70
         },
         __self: this
     }, " Register"))))));
@@ -30702,7 +30704,105 @@ const mapDispatchToProps = (dispatch)=>({
         handleSubmit: (username, password)=>dispatch(handleSubmit(username, password))
     })
 ;
-exports.default = _reactRedux.connect(null, mapDispatchToProps)(LoginView);
+exports.default = _reactRedux.connect(null, mapDispatchToProps)(LoginView); // // Modules
+ // import React, { useState } from 'react';
+ // import PropTypes from 'prop-types';
+ // import axios from 'axios';
+ // // React-Bootstrap Components
+ // import { Form, Button, InputGroup, FormControl, Alert} from 'react-bootstrap';
+ // import { Link } from 'react-router-dom';
+ // export function LoginView(props) {
+ //   // Functional component state creation via the useState hook
+ //   const [ username, setUsername ] = useState(''),
+ //     [ password, setPassword ] = useState(''),
+ //     [ validated, setValidated  ] = useState(false),
+ //     [ errors, setErrors ] = useState(null);
+ //   // Event handeler function on form submit
+ //   const handleSubmit = e => {
+ //     // Prevent the submit button from reloading the page on submit
+ //     e.preventDefault();
+ //     const form = e.currentTarget;
+ //     if (form.checkValidity() === false) {
+ //       e.stopPropagation();
+ //     }
+ //     setValidated(true)
+ //     axios.post('https://myflixdb2000.herokuapp.com/login', {
+ //         Username: username, 
+ //         Password: password
+ //       })
+ //       .then(result => {
+ //         props.onLoggedIn(result.data);
+ //       })
+ //       .catch( err => {
+ //         console.log(err)
+ //         setErrors(typeof err.response.data.message === 'string' ? err.response.data.message : err.response.data.message.message);
+ //       })
+ //   }
+ //   return (
+ //     <Form className="col-6 col-lg-4 login-form d-flex flex-column p-5 bg-light shadow" action="" noValidate validated={validated}>
+ //       <div className="form-heading text-center mt-2 mb-4 fw-light">
+ //         Log in to your account
+ //       </div>
+ //       <Alert className="err-msg border border-danger" variant="danger" role="alert" show={errors} >
+ //         <p className="m-0">{errors}</p>
+ //       </Alert>
+ //       {/* Input Group */}
+ //       <Form.Group>
+ //         <Form.Label className="">Username:</Form.Label>
+ //         <InputGroup>
+ //           <InputGroup.Prepend>
+ //             <InputGroup.Text id="username-icon">
+ //               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#7B0708" className="bi bi-person-fill" viewBox="0 0 16 16">
+ //                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+ //               </svg>
+ //             </InputGroup.Text>
+ //           </InputGroup.Prepend>
+ //           <FormControl
+ //             required
+ //             type="text"
+ //             placeholder="Username"
+ //             aria-label="Username"
+ //             aria-describedby="basic-addon1"
+ //             value={ username }
+ //             onChange={ e => {setUsername(e.target.value)} }
+ //           />
+ //           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+ //           <Form.Control.Feedback type="invalid">Please provide your username</Form.Control.Feedback>
+ //         </InputGroup>
+ //       </Form.Group>
+ //       <Form.Group controlId="password">
+ //         <Form.Label>Password:</Form.Label>
+ //         <InputGroup>
+ //           <InputGroup.Prepend>
+ //             <InputGroup.Text id="password-icon">
+ //               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#7B0708" className="bi bi-lock-fill" viewBox="0 0 16 16">
+ //                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+ //               </svg>
+ //             </InputGroup.Text>
+ //           </InputGroup.Prepend>
+ //           <FormControl
+ //             required
+ //             type="password" 
+ //             value={ password } 
+ //             onChange={ e => {setPassword(e.target.value)} }
+ //             placeholder="Password"
+ //             aria-label="Password"
+ //             aria-describedby="basic-addon1"
+ //           />
+ //           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+ //           <Form.Control.Feedback type="invalid">Please provide your password</Form.Control.Feedback>
+ //         </InputGroup>
+ //       </Form.Group>
+ //       <Button className="button btn-lg fw-light align-self-center w-100 mt-2" variant="primary" type="submit" onClick={ handleSubmit }> 
+ //       Log In
+ //       </Button>
+ //       <Form.Text className="sign-up text-center pt-3">New to MyFlix? <Link className="link" to="/register">Sign Up</Link></Form.Text>
+ //     </Form> 
+ //   )
+ // }
+ // LoginView.propTypes = {
+ //   onLoggedIn: PropTypes.func.isRequired
+ // }
 var _c;
 $RefreshReg$(_c, "LoginView");
 
@@ -30711,7 +30811,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","axios":"7rA65","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-redux":"7GDa4","prop-types":"4dfy5","react-router-dom":"1PMSK","react-bootstrap/Col":"2D0r8","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4csCt":[function(require,module,exports) {
+},{"react":"3b2NM","axios":"7rA65","prop-types":"4dfy5","react-router-dom":"1PMSK","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-redux":"7GDa4","react-bootstrap/Col":"2D0r8"}],"4csCt":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -42600,6 +42700,97 @@ exports.default = _reactRedux.connect(mapStateToProps)(FavoritesView);
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","axios":"7rA65","react-redux":"7GDa4","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3rvpz":[function() {},{}]},["1j6wU","1LHGd","1IEIN"], "1IEIN", "parcelRequire279c")
+},{"react":"3b2NM","axios":"7rA65","react-redux":"7GDa4","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3rvpz":[function() {},{}],"5PUpx":[function(require,module,exports) {
+'use strict';
+var compose = require('redux').compose;
+var logOnly = require('./logOnly');
+exports.__esModule = true;
+exports.composeWithDevTools = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : function() {
+    if (arguments.length === 0) return undefined;
+    if (typeof arguments[0] === 'object') return compose;
+    return compose.apply(null, arguments);
+};
+exports.devToolsEnhancer = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__ : function() {
+    return function(noop) {
+        return noop;
+    };
+};
+
+},{"redux":"7panR","./logOnly":"7lrpL"}],"7lrpL":[function(require,module,exports) {
+'use strict';
+var assign = require('./utils/assign');
+var compose = require('redux').compose;
+function enhancer() {
+    var config = arguments[0] || {
+    };
+    config.features = {
+        pause: true,
+        export: true,
+        test: true
+    };
+    config.type = 'redux';
+    if (config.autoPause === undefined) config.autoPause = true;
+    if (config.latency === undefined) config.latency = 500;
+    return function(createStore) {
+        return function(reducer, preloadedState, enhancer1) {
+            var store = createStore(reducer, preloadedState, enhancer1);
+            var origDispatch = store.dispatch;
+            var devTools = window.__REDUX_DEVTOOLS_EXTENSION__.connect(config);
+            devTools.init(store.getState());
+            var dispatch = function(action) {
+                var r = origDispatch(action);
+                devTools.send(action, store.getState());
+                return r;
+            };
+            if (Object.assign) return Object.assign(store, {
+                dispatch: dispatch
+            });
+            return assign(store, 'dispatch', dispatch);
+        };
+    };
+}
+function composeWithEnhancer(config) {
+    return function() {
+        return compose(compose.apply(null, arguments), enhancer(config));
+    };
+}
+exports.__esModule = true;
+exports.composeWithDevTools = function() {
+    if (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__) {
+        if (arguments.length === 0) return enhancer();
+        if (typeof arguments[0] === 'object') return composeWithEnhancer(arguments[0]);
+        return composeWithEnhancer().apply(null, arguments);
+    }
+    if (arguments.length === 0) return undefined;
+    if (typeof arguments[0] === 'object') return compose;
+    return compose.apply(null, arguments);
+};
+exports.devToolsEnhancer = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ ? enhancer : function() {
+    return function(noop) {
+        return noop;
+    };
+};
+
+},{"./utils/assign":"2zJBC","redux":"7panR"}],"2zJBC":[function(require,module,exports) {
+var objectKeys = Object.keys || function(obj) {
+    var keys = [];
+    for(var key in obj)if (({
+    }).hasOwnProperty.call(obj, key)) keys.push(key);
+    return keys;
+};
+function assign(obj, newKey, newValue) {
+    var keys = objectKeys(obj);
+    var copy = {
+    };
+    for(var i = 0, l = keys.length; i < l; i++){
+        var key = keys[i];
+        copy[key] = obj[key];
+    }
+    copy[newKey] = newValue;
+    return copy;
+}
+module.exports = assign;
+
+},{}]},["1j6wU","1LHGd","1IEIN"], "1IEIN", "parcelRequire279c")
 
 //# sourceMappingURL=index.6aaf016b.js.map
