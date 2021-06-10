@@ -15,14 +15,18 @@ export function LoginView (props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const validated = useState(null);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const config = {
+        username: username,
+        password: password
+    };
+
     /* Send a request to the server for authentication */
-    axios.post('https://myflixdb2000.herokuapp.com/login', { 
-      username: username, 
-      password: password 
-  })
+    axios.post('https://myflixdb2000.herokuapp.com/login', config)
     .then(response => {
       const data = response.data;
       props.onLoggedIn(data);
