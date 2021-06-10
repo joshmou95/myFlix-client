@@ -15,23 +15,22 @@ export function LoginView (props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const validated = useState(null);
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     /* Send a request to the server for authentication */
-    axios.post('https://myflixdb2000.herokuapp.com/login', {
+    axios.post('https://myflixdb2000.herokuapp.com/login', null, {
+      params: {
       Username: username,
       Password: password
-    }) 
+    }})
     .then(response => {
       const data = response.data;
       props.onLoggedIn(data);
     })
     .catch(e => {
       console.log('no such user');
-      alert('Invalid username or password');
+      alert('Please try again');
     });
   };
 
