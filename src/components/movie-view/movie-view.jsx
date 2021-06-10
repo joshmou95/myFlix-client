@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Col from "react-bootstrap/Col";
+
 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -32,34 +34,36 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="d-flex h-auto justify-content-center">
-      <Card style={{ width: '50rem'}} className="movie-view p-1 m-3">
+      <div className="justify-content-center">
+      <Col>
+      <Card className="movie-view mt-3">
         <div>
-          <Card.Img className="m-3 w-50" src={movie.ImagePath} />
+          <Card.Img className="m-3 w-75" src={movie.ImagePath} />
         </div>
         <Card.Body>
           <span className="label">Title: </span>
           <Card.Title className="movie-title">
-            <span className="value mx-3">{movie.Title}</span>
+            <span className="value mx-2">{movie.Title}</span>
           </Card.Title>
           <span className="label">Description: </span>
-          <Card.Text className="movie-description mx-3 w-75">
+          <Card.Text className="movie-description ml-2 w-75">
             <span className="value">{movie.Description}</span>
           </Card.Text>
           <span className="label">Directed by: </span>
-          <Card.Text className="movie-director mx-3 w-75">
+          <Card.Text className="movie-director ml-2">
             {movie.Director.Name}
           </Card.Text>
-          <Button variant="dark" className="mr-2" onClick={() => { onBackClick(null); }}>Back</Button>
           <Link to={`/directors/${movie.Director.Name}`}>
-            <Button variant="secondary" className="mr-2">Director</Button>
+            <Button variant="secondary" className="m-auto">Director</Button>
           </Link>
           <Link to={`/genres/${movie.Genre.Name}`}>
-            <Button variant="secondary" className="mr-2">Genre</Button>
+            <Button variant="secondary" className="m-1">Genre</Button>
           </Link>
           <Button variant="danger" onClick={() => { this.addFavorite(movie); }}>Favorite</Button>
+          <Button variant="dark" className="m-1" onClick={() => { onBackClick(null); }}>Back</Button>
         </Card.Body>
       </Card>
+      </Col>
       </div>
     );
   }
