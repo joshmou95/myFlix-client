@@ -11,9 +11,9 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
 
     return (
-      <div className="d-flex movie-card justify-content-center">
-        <Card style={{ width: '25rem', float: 'left' }} className="m-2 p-1">
-          <Card.Img className="poster" variant="top" src={movie.ImagePath} />
+      <div className="movie-card mx-2 p-2 d-flex flex-column justify-content-center align-items-center">
+        <Card className="" style={{ width: '13rem', height: '28rem' }} >
+          <Card.Img className="poster p-1" variant="top" src={movie.ImagePath} />
           <Card.Body>
             <Card.Title className="title">{movie.Title}</Card.Title>
             <Link to={`/movies/${movie._id}`}>

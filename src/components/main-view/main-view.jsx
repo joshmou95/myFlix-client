@@ -98,23 +98,23 @@ class MainView extends React.Component {
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView */
     return (
         <Router>
-          <Row className="main-view justify-content-md-center">
+          <div className="main-view justify-content-center">
             <Route exact path="/" render={() => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
               return (
-              <Container fluid className="d-flex flex-column">
+              <Container>
                 <Row>
                   <Col className="p-0">
                     <NavView user={user} />
                   </Col>
                 </Row>
-                <Row className="d-flex justify-content-center">
+                <div className="d-flex flex-wrap justify-content-center">
                     <MoviesList movies={movies} />
-                </Row>
+                </div>
               </Container>
-            );
-          }} />
+              );
+            }} />
             <Route exact path="/register" render={() => {
               if (user) return <Redirect to="/" />;
               return <RegistrationView />
@@ -205,7 +205,7 @@ class MainView extends React.Component {
                 </Container>
               );
             }} />
-          </Row>
+          </div>
         </Router>
     );
   }
