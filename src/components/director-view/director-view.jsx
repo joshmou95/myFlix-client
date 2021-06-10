@@ -32,7 +32,7 @@ export class DirectorView extends React.Component {
               <span>Biography: </span>
               <span className="value">{director.Bio}</span>
             </Card.Text>
-            <Button variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
+            <Button variant="secondary" onClick={() => { onBackClick(null); }}>Back</Button>
           </Card.Body>
         </Card>
           <h4 className="mt-3">Some {director.Name} movies</h4><hr />

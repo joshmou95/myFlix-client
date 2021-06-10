@@ -30158,21 +30158,22 @@ class MovieCard extends _reactDefault.default.Component {
                 lineNumber: 17
             },
             __self: this
-        }, movie.Title), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+        }, movie.Title)), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/movies/${movie._id}`,
-            __source: {
-                fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 18
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "dark",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
                 lineNumber: 19
             },
             __self: this
-        }, "Open")))));
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "info",
+            block: true,
+            __source: {
+                fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
+                lineNumber: 20
+            },
+            __self: this
+        }, "More info"))));
     }
 }
 MovieCard.propTypes = {
@@ -30758,7 +30759,7 @@ class MovieView extends _reactDefault.default.Component {
             }
         }).then((response)=>{
             // console.log(response);
-            alert("Added to favorites");
+            alert("Added to favorites!");
         });
     }
     render() {
@@ -30867,7 +30868,7 @@ class MovieView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "secondary",
+            variant: "info",
             className: "mr-1 mt-1",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
@@ -30882,7 +30883,7 @@ class MovieView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "secondary",
+            variant: "info",
             className: "mr-1 mt-1",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
@@ -30901,7 +30902,7 @@ class MovieView extends _reactDefault.default.Component {
             },
             __self: this
         }, "Favorite"), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "dark",
+            variant: "secondary",
             className: "mr-1 mt-1",
             onClick: ()=>{
                 onBackClick(null);
@@ -31046,7 +31047,7 @@ class DirectorView extends _reactDefault.default.Component {
             },
             __self: this
         }, director.Bio)), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "dark",
+            variant: "secondary",
             onClick: ()=>{
                 onBackClick(null);
             },
@@ -41669,7 +41670,7 @@ class GenreView extends _reactDefault.default.Component {
             },
             __self: this
         }, genre.Description)), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "dark",
+            variant: "secondary",
             onClick: ()=>{
                 onBackClick(null);
             },
@@ -42135,7 +42136,7 @@ class ProfileView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
-            className: "mt-3",
+            className: "my-3",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/profile-view/profile-view.jsx",
                 lineNumber: 120
@@ -42307,7 +42308,7 @@ class ProfileView extends _reactDefault.default.Component {
             },
             __self: this
         }, "Please enter a valid date.")), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "dark",
+            variant: "secondary",
             type: "submit",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/profile-view/profile-view.jsx",
@@ -42321,8 +42322,8 @@ class ProfileView extends _reactDefault.default.Component {
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "dark",
-            className: "m-1",
+            variant: "secondary",
+            className: "my-2",
             onClick: ()=>{
                 onBackClick(null);
             },
@@ -42332,6 +42333,7 @@ class ProfileView extends _reactDefault.default.Component {
             },
             __self: this
         }, "Back"), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            className: "my-3",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/profile-view/profile-view.jsx",
                 lineNumber: 160
@@ -42432,6 +42434,7 @@ class NavView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav, {
+            variant: "pills",
             className: "ml-auto",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/nav-view/nav-view.js",

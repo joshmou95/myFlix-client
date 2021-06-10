@@ -24,7 +24,7 @@ export class NavView extends React.Component {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-      <Nav className="ml-auto">    
+      <Nav variant="pills" className="ml-auto">    
         <Nav.Link as={Link} to={`/users/${this.props.user}`}>Profile</Nav.Link>
         <Nav.Link href="/" onClick={() => { this.onLoggedOut() }}>Log Out</Nav.Link>
       </Nav>

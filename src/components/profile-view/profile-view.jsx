@@ -117,7 +117,7 @@ export class ProfileView extends React.Component {
 
   return (
     <div>
-      <Card className="mt-3">
+      <Card className="my-3">
         <Card.Body>
           <Form noValidate validated={validated} className='update-form' onSubmit={(e) => this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
             <Row className="justify-content-center">
@@ -155,10 +155,10 @@ export class ProfileView extends React.Component {
                   onChange={(e) => this.setBirthday(e.target.value )} />
                   <Form.Control.Feedback type='invalid'>Please enter a valid date.</Form.Control.Feedback>
                 </Form.Group>
-                <Button variant="dark" type="submit">Update</Button><hr />
-                <Button variant="dark" className="m-1" onClick={() => { onBackClick(null); }}>Back</Button>
-                <p>Deregister Account: - Cannot be undone!</p>
-                <Button variant="danger" onClick={(e) => this.deRegister(e)}>Deregister</Button>
+                <Button variant="secondary" type="submit">Update</Button><hr />
+                <Button variant="secondary" className="my-2" onClick={() => { onBackClick(null); }}>Back</Button>
+                <p className="my-3">Deregister Account: - Cannot be undone!</p>
+                <Button variant="danger"  onClick={(e) => this.deRegister(e)}>Deregister</Button>
               </Col>
             </Row>
           </Form>
