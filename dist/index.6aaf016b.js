@@ -24868,8 +24868,8 @@ class MainView extends _reactDefault.default.Component {
                 lineNumber: 100
             },
             __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
-            className: "main-view justify-content-md-center",
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "main-view justify-content-center",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
                 lineNumber: 101
@@ -24885,15 +24885,12 @@ class MainView extends _reactDefault.default.Component {
                 if (movies.length === 0) return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
                     className: "main-view"
                 }));
-                return(/*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Container, {
-                    fluid: true,
-                    className: "d-flex flex-column"
-                }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, null, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+                return(/*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Container, null, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, null, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
                     className: "p-0"
                 }, /*#__PURE__*/ _reactDefault.default.createElement(_navView.NavView, {
                     user: user
-                }))), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
-                    className: "d-flex justify-content-center"
+                }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+                    className: "d-flex flex-wrap justify-content-center"
                 }, /*#__PURE__*/ _reactDefault.default.createElement(_moviesListDefault.default, {
                     movies: movies
                 }))));
@@ -28795,7 +28792,10 @@ function MoviesList(props) {
         },
         __self: this
     })), filteredMovies.map((m)=>/*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
-            md: 3,
+            xs: 6,
+            sm: 5,
+            md: 4,
+            lg: 3,
             key: m._id,
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movies-list/movies-list.jsx",
@@ -30125,25 +30125,25 @@ class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie  } = this.props;
         return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "d-flex movie-card justify-content-center",
+            className: "movie-card mx-2 p-2 d-flex flex-column justify-content-center align-items-center",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
                 lineNumber: 14
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
+            className: "",
             style: {
-                width: '25rem',
-                float: 'left'
+                width: '13rem',
+                height: '28rem'
             },
-            className: "m-2 p-1",
             __source: {
                 fileName: "/Users/joshmou/careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
                 lineNumber: 15
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
-            className: "poster",
+            className: "poster p-1",
             variant: "top",
             src: movie.ImagePath,
             __source: {
