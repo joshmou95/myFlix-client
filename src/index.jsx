@@ -9,7 +9,6 @@ import moviesApp from './reducers/reducers';
 
 import MainView from './components/main-view/main-view';
 
-// import { devToolsEnhancer } from 'redux-devtools-extension';
 import { devToolsEnhancer } from 'redux-devtools-extension/logOnlyInProduction';
 
 import './index.scss';
