@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/actions';
+import { updateUser } from '../../actions/actions';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -11,7 +12,6 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from 'react-bootstrap/Form';
 
-import './profile-view.scss';
 
 
 export class ProfileView extends React.Component {
@@ -111,9 +111,10 @@ export class ProfileView extends React.Component {
 
   render() {
     const { validated } = this.state;
+    const { onBackClick } = this.props;
     // const validated = null
-    const username = localStorage.getItem('user');
-    const { movies, onBackClick } = this.props;
+    // const username = localStorage.getItem('user');
+    
 
   return (
     <div>
@@ -183,4 +184,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { setUser })(ProfileView);
+export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
