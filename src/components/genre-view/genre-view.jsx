@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-import Container from 'react-bootstrap/Container';
-
 import { MovieCard } from '../movie-card/movie-card'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 export class GenreView extends React.Component {
   constructor (props) {

@@ -2,12 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
-import './director-view.scss'
 import { MovieCard } from '../movie-card/movie-card';
-import { Container } from 'react-bootstrap';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
 
 export class DirectorView extends React.Component {
   constructor (props) {

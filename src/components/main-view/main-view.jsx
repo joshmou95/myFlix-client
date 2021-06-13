@@ -3,7 +3,6 @@ import React from 'react';
 import axios from 'axios';
 
 import { connect } from 'react-redux';
-
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 
 
@@ -11,8 +10,6 @@ import { setMovies } from '../../actions/actions';
 import { setUser } from '../../actions/actions';
 
 import MoviesList from '../movies-list/movies-list';
-
-
 import { LoginView } from '../login-view/login-view';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view/';
@@ -25,8 +22,7 @@ import { FavoritesView } from '../favorites-view/favorites-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Container, Navbar, Nav } from 'react-bootstrap';
-import './main-view.scss';
+import { Container } from 'react-bootstrap';
 
 
 // exposes MainView class component to use by other components
@@ -75,7 +71,6 @@ class MainView extends React.Component {
     this.setState({
       user: authData.user.Username
     });
-    // this.props.setUser(authData.user.Username);
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
@@ -99,6 +94,7 @@ class MainView extends React.Component {
     return (
         <Router>
           <div className="main-view justify-content-center">
+
             <Route exact path="/" render={() => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
@@ -115,10 +111,12 @@ class MainView extends React.Component {
               </Container>
               );
             }} />
+
             <Route exact path="/register" render={() => {
               if (user) return <Redirect to="/" />;
               return <RegistrationView />
             }} />
+
             <Route path="/movies/:movieId" render={({ match, history }) => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
@@ -139,6 +137,7 @@ class MainView extends React.Component {
               </Container>
               );
             }} />
+
             <Route path="/genres/:name" render={ ({ match, history }) => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
@@ -160,6 +159,7 @@ class MainView extends React.Component {
               </Container>
               );
             }} />
+
             <Route path="/directors/:name" render={({ match, history }) => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
@@ -182,6 +182,7 @@ class MainView extends React.Component {
                 </Container>
               );
             }} />
+
             <Route path="/users/:Username" render={({ history }) => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
