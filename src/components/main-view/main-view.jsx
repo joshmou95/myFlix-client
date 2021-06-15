@@ -36,6 +36,7 @@ class MainView extends React.Component {
     this.state = {
       user: null
     };
+    console.log('MainView Loaded')
   }
 
   // execute after the component is added to the DOM
@@ -43,13 +44,48 @@ class MainView extends React.Component {
     // get value of the token from localStorage
     const accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
+      // this.setState({
+      //   user: localStorage.getItem('user')
+      // });
+      console.log('componentDidMount MainView');
       // call getMovies method GET request to movies endpoint
+      this.getUser(accessToken);
       this.getMovies(accessToken);
     }
   }
+
+  /* When a user successfully logs in, this function updates the `authData` property in state to that particular user  from login-view. props.onLoggedIn(data) */
+  onLoggedIn (authData) {
+    this.props.setUser(authData);
+    this.setState({
+      user: authData.user
+    });
+    console.log('onLoggedIn reached', authData)
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
+  }
+
+  getUser(token) {
+    // const url = 'https://myflixdb2000.herokuapp.com/users/'
+    const user = localStorage.getItem("user")
+    axios
+      .get('https://myflixdb2000.herokuapp.com/users/' + user, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        this.props.setUser(response.data)
+        this.setState({
+          user: response.data
+        });
+        console.log('getUser response', response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      console.log('getUser reached')
+  }
+
 
   getMovies (token) {
     axios.get('https://myflixdb2000.herokuapp.com/movies', {
@@ -57,23 +93,12 @@ class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        // # 4
         this.props.setMovies(response.data);
         })
       .catch(function (error) {
         console.log(error);
       });
-  }
-
-  /* When a user successfully logs in, this function updates the `authData` property in state to that particular user  from login-view. props.onLoggedIn(data) */
-  onLoggedIn (authData) {
-    this.props.setUser(authData);
-    this.setState({
-      user: authData.user.Username
-    });
-    localStorage.setItem('token', authData.token);
-    localStorage.setItem('user', authData.user.Username);
-    this.getMovies(authData.token);
+      console.log('getMovies reached');
   }
 
   // delete token when logged out
@@ -87,9 +112,12 @@ class MainView extends React.Component {
 
   // returns visual representation of the component
   render () {
-    // #5 movies is extracted from this.props rather than this.state
+    // movies is extracted from this.props rather than this.state
     let { movies } = this.props;
     let { user } = this.state;
+    console.log('MainView Render user', user);
+    console.log('MainView Render movies', movies);
+
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView */
     return (
         <Router>
@@ -182,7 +210,7 @@ class MainView extends React.Component {
                 </Container>
               );
             }} />
-
+          
             <Route path="/users/:Username" render={({ history }) => {
               if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
               if (movies.length === 0) return <div className="main-view" />;
@@ -219,12 +247,10 @@ class MainView extends React.Component {
 //   return { movies: state.movies }
 // }
 let mapStateToProps = state => {
-  // const { user, movies } = state;
   return {
     user: state.user,
     movies: state.movies
   }
-  
 }
 
 // movies state is extracted from the store through the connect() function
