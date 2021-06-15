@@ -12,10 +12,11 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Col';
 
 export function LoginView (props) {
-  /* call useState() method with an empty string, the initial value of the login variable. This method returns an arry that you destructure */
+  /* call useState() method with an empty string, the initial value of the login variable. This method returns an array that you destructure */
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const validated = useState(null);
+  console.log('LoginView Loaded');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,10 +30,11 @@ export function LoginView (props) {
     .then(response => {
       const data = response.data;
       props.onLoggedIn(data);
+      console.log('login post reached', data);
     })
     .catch(e => {
-      console.log('no such user');
-      alert('Please try again');
+      console.log('user login error');
+      alert('Invalid username or password');
     });
   };
 
