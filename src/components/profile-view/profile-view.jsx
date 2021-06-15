@@ -20,6 +20,7 @@ export class ProfileView extends React.Component {
     this.state = {
       validated: null
     };
+    console.log('Profile View Loaded');
     this.handleUpdate = this.handleUpdate.bind(this);
     this.deRegister = this.deRegister.bind(this);
   }
@@ -171,16 +172,14 @@ export class ProfileView extends React.Component {
 
 PropTypes.checkPropTypes(ProfileView.propTypes);
 ProfileView.propTypes = {
-  user: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   onBackClick: PropTypes.func.isRequired
 }
 
-
-const mapStateToProps = (state) => {
-  const { user, movies } = state;
-  return { 
-    user, 
-    movies 
+let mapStateToProps = state => {
+  return {
+    user: state.user,
+    movies: state.movies
   }
 }
 
