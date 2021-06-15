@@ -9,37 +9,8 @@ import Card from 'react-bootstrap/Card';
 export class FavoritesView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      Username: '',
-      Password: '',
-      Email: '',
-      Birthday: '',
-      FavoriteMovies: [],
-      validated: null,
-    };
+    console.log('FavoritesView Loaded')
     this.removeFavorite = this.removeFavorite.bind(this);
-  }
-
-  componentDidMount() {
-    const accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.getUser(accessToken);
-    }
-  }
-
-  getUser(token) {
-    const url = 'https://myflixdb2000.herokuapp.com/users/'
-    const user = localStorage.getItem("user")
-    axios
-      .get(url + user, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        this.setState(response.data)
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   }
 
   removeFavorite(movie) {
@@ -61,14 +32,15 @@ export class FavoritesView extends React.Component {
   }
 
   render() {
-    const { FavoriteMovies } = this.state;
+    const FavoriteMovies = this.props.user.FavoriteMovies;
     const { movies } = this.props;
-    // const user = this.state;  
+    console.log('FavMovies render', FavoriteMovies);
+    
 
   return (
     <div>
       <Card className='profile-card p-3 mt-2'>
-        <Card.Title className='profile-title'>{this.props.user}'s Favorite Movies</Card.Title>
+        <Card.Title className='profile-title'>{this.props.user.Username}'s Favorite Movies</Card.Title>
           {FavoriteMovies.length === 0 && <div className='card-content'>You don't have any favorite movies yet!</div>}
           <div className='favorites-container'>
               {FavoriteMovies.length > 0 && movies.map((movie) => {
@@ -94,11 +66,10 @@ export class FavoritesView extends React.Component {
 }
 
 
-const mapStateToProps = (state) => {
-  const { user, movies } = state;
-  return { 
-    user, 
-    movies 
+let mapStateToProps = state => {
+  return {
+    user: state.user,
+    movies: state.movies
   }
 }
 
