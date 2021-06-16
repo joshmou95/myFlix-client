@@ -11,21 +11,21 @@ It is responsive and can be viewed on a variety of devices with the same functio
 Movie enthusiasts like to be able to access information about different movies, directors, and genres, whenever they want to. Having the ability to save lists of favorite movies will ensure users always have access to the films they want to watch or recommend to their peers.
 
 
-##Essential Views and Features<br>
-###MainView<br>
+## Essential Views and Features<br>
+### MainView<br>
 ● Returns a list of ALL movies to the user (each listed item with an image, and title)<br>
 ● filter movie list by title<br>
 ● Ability to select a movie for more details and see single movie view<br>
 ● Returns data (description, genre, director, image) about a single movie to the user<br>
 ● Allows users to add a movie to their list of favorites<br>
 
-###Login view<br>
+### Login view<br>
 ● Allows users to log in with a username and password<br>
 
-###Registration view<br>
+### Registration view<br>
 ● Allows new users to register (username, password, email, birthday)<br>
 
-###Genre view<br>
+### Genre view<br>
 ● Returns data about a genre, with a name and description<br>
 ● Displays example movies<br>
 
@@ -33,7 +33,7 @@ Movie enthusiasts like to be able to access information about different movies, 
 ● Returns data about a director (name, bio, birth year, death year)<br>
 ● Displays example movies<br>
 
-###Profile view<br>
+### Profile view<br>
 ● Allows users to update their user info (username, password, email, date of birth)<br>
 ● Allows existing users to deregister<br>
 ● Displays favorite movies<br>
