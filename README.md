@@ -10,7 +10,7 @@ It is responsive and can be viewed on a variety of devices with the same functio
 
 Movie enthusiasts like to be able to access information about different movies, directors, and genres, whenever they want to. Having the ability to save lists of favorite movies will ensure users always have access to the films they want to watch or recommend to their peers.
 
-Netlify Link :  [myFlixmcu](https://myflixmcu.netlify.app/ "Netlify Link") 
+### Netlify Link :  [myFlixmcu.netlify.app](https://myflixmcu.netlify.app/ "Netlify Link") 
 
 
 ## Views and Features<br>
@@ -31,7 +31,7 @@ Netlify Link :  [myFlixmcu](https://myflixmcu.netlify.app/ "Netlify Link")
 ● Returns data about a genre, with a name and description<br>
 ● Displays example movies<br>
 
-###Director view<br>
+### Director view<br>
 ● Returns data about a director (name, bio, birth year, death year)<br>
 ● Displays example movies<br>
 
