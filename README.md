@@ -10,7 +10,7 @@ It is responsive and can be viewed on a variety of devices with the same functio
 
 Movie enthusiasts like to be able to access information about different movies, directors, and genres, whenever they want to. Having the ability to save lists of favorite movies will ensure users always have access to the films they want to watch or recommend to their peers.
 
-Markup :  [Netflify Link](https://myflixmcu.netlify.app/ "Netlify Link") 
+Netlify Link :  [myFlixmcu](https://myflixmcu.netlify.app/ "Netlify Link") 
 
 
 ## Views and Features<br>
@@ -43,5 +43,3 @@ Markup :  [Netflify Link](https://myflixmcu.netlify.app/ "Netlify Link")
 
 Parcel path:
 parcel src/index.html
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b82a44da-26bc-4e60-a5e1-cade6ea7b94f/deploy-status)](https://app.netlify.com/sites/myflixmcu/deploys)
