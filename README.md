@@ -11,7 +11,7 @@ It is responsive and can be viewed on a variety of devices with the same functio
 Movie enthusiasts like to be able to access information about different movies, directors, and genres, whenever they want to. Having the ability to save lists of favorite movies will ensure users always have access to the films they want to watch or recommend to their peers.
 
 
-## Essential Views and Features<br>
+## Views and Features<br>
 ### MainView<br>
 ● Returns a list of ALL movies to the user (each listed item with an image, and title)<br>
 ● filter movie list by title<br>
