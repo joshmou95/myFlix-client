@@ -44,9 +44,6 @@ class MainView extends React.Component {
     // get value of the token from localStorage
     const accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      // this.setState({
-      //   user: localStorage.getItem('user')
-      // });
       console.log('componentDidMount MainView');
       // call getMovies method GET request to movies endpoint
       this.getUser(accessToken);
@@ -67,7 +64,6 @@ class MainView extends React.Component {
   }
 
   getUser(token) {
-    // const url = 'https://myflixdb2000.herokuapp.com/users/'
     const user = localStorage.getItem("user")
     axios
       .get('https://myflixdb2000.herokuapp.com/users/' + user, {
