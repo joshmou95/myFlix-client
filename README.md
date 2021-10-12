@@ -12,6 +12,7 @@ Movie enthusiasts like to be able to access information about different movies, 
 
 ### Netlify Link :  [myFlixmcu.netlify.app](https://myflixmcu.netlify.app/ "Netlify Link") 
 
+![myflix-react](https://user-images.githubusercontent.com/80426764/136887033-b2f0da77-4f02-4ea1-82c5-c0c4b6aa2276.gif)
 
 ## Views and Features<br>
 ### MainView<br>
